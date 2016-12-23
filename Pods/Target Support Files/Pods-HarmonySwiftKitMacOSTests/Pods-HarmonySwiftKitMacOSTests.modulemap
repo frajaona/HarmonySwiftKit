@@ -1,0 +1,6 @@
+framework module Pods_HarmonySwiftKitMacOSTests {
+  umbrella header "Pods-HarmonySwiftKitMacOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

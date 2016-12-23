@@ -1,0 +1,6 @@
+framework module XMPPFramework {
+  umbrella header "XMPPFramework.common-SystemInputActivityMonitor-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>HarmonySwiftKit.xcscheme</key>
+		<key>HarmonySwiftKitMacOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+		<key>HarmonySwiftKitTvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>HarmonySwiftKitiOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +28,36 @@
 			<true/>
 		</dict>
 		<key>FC9B6B851DEEDA93006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6B9B1DEEDB44006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6BA31DEEDB44006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6BB71DEEDB78006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6BBF1DEEDB78006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6BD31DEEDBA1006F6BDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC9B6BDB1DEEDBA1006F6BDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
