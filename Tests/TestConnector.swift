@@ -9,6 +9,7 @@
 import XCTest
 import RxSwift
 import RxTest
+import XMPPFramework
 
 class TestConnector: XCTestCase {
 
@@ -39,7 +40,8 @@ class TestConnector: XCTestCase {
         XCTAssertEqual(observer.events.count, 1)
         connector.connect()
             .subscribe(onNext: { result in
-                self.log.debug("first connected process succeeded")
+                self.log.debug("first connected process returned: \(result)")
+                XCTAssertEqual(result, .success)
                 e.fulfill()
             }).addDisposableTo(disposeBag)
 
@@ -55,7 +57,8 @@ class TestConnector: XCTestCase {
         
         connector.connect()
             .subscribe(onNext: { result in
-                self.log.debug("second connected process succeeded")
+                self.log.debug("second connected process returned: \(result)")
+                XCTAssertEqual(result, .success)
                 e.fulfill()
             }).addDisposableTo(disposeBag)
 
@@ -68,5 +71,96 @@ class TestConnector: XCTestCase {
         XCTAssertEqual(observer.events.count, 2)
     }
 
+    func testConnectFailureOnRequestingAuthentication() {
+        let e = expectation(description: "first connection process ended")
+        class MockRxXMPPStream: RxXMPPStream {
+
+            override func authenticate(_ auth: XMPPSASLAuthentication!) throws {
+                throw ConnectorError.failedRequestingAuthentication
+            }
+        }
+        let stream = MockRxXMPPStream()!
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        connector.connected
+            .asObservable()
+            .subscribe(observer)
+            .addDisposableTo(disposeBag)
+        XCTAssertEqual(observer.events.count, 1)
+        connector.connect()
+            .subscribe(onNext: { result in
+                self.log.debug("first connected process returned: \(result)")
+                XCTAssertEqual(result, .failedRequestingAuthentication)
+                e.fulfill()
+            }).addDisposableTo(disposeBag)
+
+        waitForExpectations(timeout: 20, handler:  { error in
+            if let error = error {
+                XCTFail("first testConnectSuccess timed out: \(error)")
+            }
+        })
+
+    }
+
+    func testConnectFailureOnConnectRequest() {
+        let e = expectation(description: "first connection process ended")
+        class MockRxXMPPStream: RxXMPPStream {
+
+            override func connect(withTimeout timeout: TimeInterval) throws {
+                throw ConnectorError.failedStartingConnection
+            }
+
+        }
+        let stream = MockRxXMPPStream()!
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        connector.connected
+            .asObservable()
+            .subscribe(observer)
+            .addDisposableTo(disposeBag)
+        XCTAssertEqual(observer.events.count, 1)
+        connector.connect()
+            .subscribe(onNext: { result in
+                self.log.debug("first connected process returned: \(result)")
+                XCTAssertEqual(result, .failedStartingConnection)
+                e.fulfill()
+            }).addDisposableTo(disposeBag)
+
+        waitForExpectations(timeout: 20, handler:  { error in
+            if let error = error {
+                XCTFail("first testConnectSuccess timed out: \(error)")
+            }
+        })
+        
+    }
+
+    func testConnectFailureOnStartingConnection() {
+        let e = expectation(description: "first connection process ended")
+        class MockRxXMPPStream: RxXMPPStream {
+
+            override func rx_connect(with timeout: TimeInterval) -> Observable<Bool> {
+                return Observable.just(false)
+            }
+
+        }
+        let stream = MockRxXMPPStream()!
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        connector.connected
+            .asObservable()
+            .subscribe(observer)
+            .addDisposableTo(disposeBag)
+        XCTAssertEqual(observer.events.count, 1)
+        connector.connect()
+            .subscribe(onNext: { result in
+                self.log.debug("first connected process returned: \(result)")
+                XCTAssertEqual(result, .failedStartingConnection)
+                e.fulfill()
+            }).addDisposableTo(disposeBag)
+
+        waitForExpectations(timeout: 20, handler:  { error in
+            if let error = error {
+                XCTFail("first testConnectSuccess timed out: \(error)")
+            }
+        })
+        
+    }
     
 }

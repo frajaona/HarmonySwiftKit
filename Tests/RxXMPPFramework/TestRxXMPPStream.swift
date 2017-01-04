@@ -38,7 +38,7 @@ class TestRxXMPPStream: XCTestCase {
     }
     
     func testReceiveXmppStreamWillConnect() {
-        _ = stream?.rx_xmppStreamWillConnect
+        _ = stream?.rx_xmppStreamWillConnect()
             .subscribe(observer)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -55,7 +55,7 @@ class TestRxXMPPStream: XCTestCase {
     }
 
     func testReceiveXmppStreamDidConnect() {
-        _ = stream?.rx_xmppStreamDidConnect
+        _ = stream?.rx_xmppStreamDidConnect()
             .subscribe(observer)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -72,7 +72,7 @@ class TestRxXMPPStream: XCTestCase {
     }
 
     func testReceiveXmppStreamConnectDidTimeout() {
-        _ = stream?.rx_xmppStreamConnectDidTimeout
+        _ = stream?.rx_xmppStreamConnectDidTimeout()
             .subscribe(observer)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -90,7 +90,7 @@ class TestRxXMPPStream: XCTestCase {
 
     func testReceiveXmppDidReceiveMessage() {
         var message = XMPPMessage(name: "test")
-        _ = stream?.rx_xmppStreamDidReceiveXMPPMessage
+        _ = stream?.rx_xmppStreamDidReceiveXMPPMessage()
             .subscribe(defaultMessageObserver)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -123,7 +123,7 @@ class TestRxXMPPStream: XCTestCase {
 
     func testReceiveXmppDidReceiveIq() {
         var message = XMPPIQ(name: "test")
-        _ = stream?.rx_xmppStreamDidReceiveIq
+        _ = stream?.rx_xmppStreamDidReceiveIq()
             .subscribe(iqMessageObserver)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -157,7 +157,7 @@ class TestRxXMPPStream: XCTestCase {
     }
 
     func testReceiveXmppWillBind() {
-        _ = stream?.rx_xmppStreamConnectWillBind
+        _ = stream?.rx_xmppStreamConnectWillBind()
             .subscribe(observer)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)
@@ -174,7 +174,7 @@ class TestRxXMPPStream: XCTestCase {
     }
 
     func testReceiveXmppStreamDidAuthenticate() {
-        _ = stream?.rx_xmppStreamDidAuthenticate
+        _ = stream?.rx_xmppStreamDidAuthenticate()
             .subscribe(observer)
             .addDisposableTo(bag)
         XCTAssertNotNil(stream?.delegate)

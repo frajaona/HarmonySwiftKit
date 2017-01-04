@@ -24,19 +24,15 @@ class RxXMPPStream: XMPPStream {
             }
         }
     }
-    
-}
-
-extension RxXMPPStream {
 
     var rx_delegate: DelegateProxy {
         return RxXMPPStreamDelegateProxy.proxyForObject(self)
     }
 
-    var rx_connect: Observable<Bool> {
+    func rx_connect(with timeout: TimeInterval) -> Observable<Bool> {
         return Observable.create { observer in
             do {
-                try self.connect(withTimeout: 10)
+                try self.connect(withTimeout: timeout)
                 observer.onNext(true)
                 observer.onCompleted()
             } catch {
@@ -46,49 +42,51 @@ extension RxXMPPStream {
         }
     }
 
-    var rx_xmppStreamWillConnect: Observable<RxXMPPStream> {
+    func rx_xmppStreamWillConnect() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamWillConnect(_:)))
             .map { parameters in
                 return try castOrThrow(RxXMPPStream.self, parameters[0])
-            }
+        }
     }
 
-    var rx_xmppStreamDidConnect: Observable<RxXMPPStream> {
+    func rx_xmppStreamDidConnect() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamDidConnect(_:)))
             .map { parameters in
                 return try castOrThrow(RxXMPPStream.self, parameters[0])
-            }
+        }
     }
 
-    var rx_xmppStreamConnectDidTimeout: Observable<RxXMPPStream> {
+    func rx_xmppStreamConnectDidTimeout() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamConnectDidTimeout(_:)))
             .map { parameters in
                 return try castOrThrow(RxXMPPStream.self, parameters[0])
-            }
+        }
     }
 
-    var rx_xmppStreamDidReceiveXMPPMessage: Observable<(RxXMPPStream, XMPPMessage)> {
+    func rx_xmppStreamDidReceiveXMPPMessage() -> Observable<(RxXMPPStream, XMPPMessage)> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.receiveXMPPMessageSubject
     }
 
-    var rx_xmppStreamDidReceiveIq: Observable<(RxXMPPStream, XMPPIQ)> {
+    func rx_xmppStreamDidReceiveIq() -> Observable<(RxXMPPStream, XMPPIQ)> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.receiveIQSubject
     }
 
-    var rx_xmppStreamConnectWillBind: Observable<RxXMPPStream> {
+    func rx_xmppStreamConnectWillBind() -> Observable<RxXMPPStream> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.willBindSubject
     }
 
-    var rx_xmppStreamDidAuthenticate: Observable<RxXMPPStream> {
+    func rx_xmppStreamDidAuthenticate() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamDidAuthenticate(_:)))
             .map { parameters in
                 return try castOrThrow(RxXMPPStream.self, parameters[0])
         }
     }
+    
 }
+
 
 
 fileprivate func castOrThrow<T>(_ resultType: T.Type, _ object: Any) throws -> T {

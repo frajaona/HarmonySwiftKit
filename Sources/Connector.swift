@@ -15,22 +15,16 @@ protocol Connector {
 
     var connected: Variable<Bool> { get }
 
-    func connect() -> Observable<Bool>
+    func connect() -> Observable<ConnectorError>
 }
 
 enum ConnectorError: Error {
-    case failedCreatingStream
+    case success
     case failedStartingConnection
     case failedRequestingAuthentication
-    case failedRequestingToken
 }
 
 class DefaultConnector: Connector {
-
-    internal func connect() -> Bool {
-        return false
-    }
-
 
     fileprivate let log = Logger.get()
 
@@ -50,67 +44,57 @@ class DefaultConnector: Connector {
     
     let connected = Variable<Bool>(false)
 
-    var jointAuthRequest: ((RxXMPPStream) throws -> Observable<RxXMPPStream>) {
-        return { (sender) -> Observable<(RxXMPPStream)> in
-            let logger = Logger.get()
-            logger.debug("stream connected, trying authentication...")
-            do {
-                let authentication = XMPPPlainAuthentication(stream: sender, password: "guest")
-                try sender.authenticate(authentication!)
-                return sender.rx_xmppStreamDidAuthenticate
-            } catch {
-                logger.warning("authentication failed: \(error)")
-            }
+    func authenticationRequest(sender: RxXMPPStream) throws -> Observable<RxXMPPStream> {
+        log.debug("stream connected, trying authentication...")
+        do {
+            let authentication = XMPPPlainAuthentication(stream: sender, password: "guest")
+            try sender.authenticate(authentication!)
+            return sender.rx_xmppStreamDidAuthenticate()
+        } catch {
+            log.warning("authentication failed: \(error)")
             throw ConnectorError.failedRequestingAuthentication
         }
     }
 
-    var jointTokenRequest: ((RxXMPPStream) throws -> Observable<(RxXMPPStream, XMPPIQ)>) {
-        return { (sender) -> Observable<(RxXMPPStream, XMPPIQ)> in
+    func tokenRequest(sender: RxXMPPStream) throws -> Observable<(RxXMPPStream, XMPPIQ)> {
+        log.debug("authentication succeeded")
+
+        let query = XMLElement(name: "oa", xmlns: "connect.logitech.com")!
+        query.addAttribute(withName: "mime", stringValue: "vnd.logitech.connect/vnd.logitech.pair")
+        query.stringValue = "method=pair:name=domoticz#iOS10.1.0#iPhone"
+
+        let iq = XMPPIQ(type: "get", child: query)
+        iq?.addAttribute(withName: "from", stringValue: "guest")
+        iq?.addAttribute(withName: "id", stringValue: DefaultConnector.connectionId)
+        log.debug("requesting authentication token")
+        sender.send(iq)
+        return sender.rx_xmppStreamDidReceiveIq()
+
+    }
+
+
+    func resultRequest(sender: RxXMPPStream, iq: XMPPIQ) -> Observable<ConnectorError> {
+        return Observable.create { observer in
             let logger = Logger.get()
-            logger.debug("authentication succeeded")
-
-            if let query = XMLElement(name: "oa", xmlns: "connect.logitech.com") {
-                query.addAttribute(withName: "mime", stringValue: "vnd.logitech.connect/vnd.logitech.pair")
-                query.stringValue = "method=pair:name=domoticz#iOS10.1.0#iPhone"
-
-                let iq = XMPPIQ(type: "get", child: query)
-                iq?.addAttribute(withName: "from", stringValue: "guest")
-                iq?.addAttribute(withName: "id", stringValue: DefaultConnector.connectionId)
-                logger.debug("requesting authentication token")
-                sender.send(iq)
-                return sender.rx_xmppStreamDidReceiveIq
+            logger.debug("stream received iq: \(iq)")
+            let result = self.authenticator.handle(iq: iq)
+            if  result == .success {
+                self.connected.value = true
+                observer.onNext(.success)
+                observer.onCompleted()
+            } else {
+                logger.debug("cannot find token: \(result)")
             }
-            throw ConnectorError.failedRequestingToken
+            return Disposables.create()
         }
     }
 
-
-    var jointResult: ((RxXMPPStream, XMPPIQ) -> Observable<Bool>) {
-        return { [unowned self] (sender, iq) -> Observable<Bool> in
-            return Observable.create { observer in
-                let logger = Logger.get()
-                logger.debug("stream received iq: \(iq)")
-                let result = self.authenticator.handle(iq: iq)
-                if  result == .success {
-                    self.connected.value = true
-                    observer.onNext(true)
-                    observer.onCompleted()
-                } else {
-                    logger.debug("cannot find token: \(result)")
-                }
-                return Disposables.create()
-            }
-        }
-
-    }
-
-    var connectionObservable: Observable<Bool> {
-        return stream.rx_xmppStreamDidConnect
+    var connectionObservable: Observable<ConnectorError> {
+        return stream.rx_xmppStreamDidConnect()
             .observeOn(MainScheduler.instance)
-            .flatMap(jointAuthRequest)
-            .flatMap(jointTokenRequest)
-            .flatMap(jointResult)
+            .flatMap(authenticationRequest)
+            .flatMap(tokenRequest)
+            .flatMap(resultRequest)
     }
 
     init(with stream: RxXMPPStream, authenticator: Authenticator) {
@@ -119,32 +103,32 @@ class DefaultConnector: Connector {
         stream.rx_delegate.setForwardToDelegate(willBindDelegate, retainDelegate: false)
     }
 
-    func connect() -> Observable<Bool> {
+    func connect() -> Observable<ConnectorError> {
         let log = self.log
         let stream = self.stream!
-        return connected.asObservable()
-            .flatMapLatest { [unowned self] (connected) -> Observable<Bool> in
-                if connected {
-                    return Observable<Bool>.just(true)
-                } else {
-                    log.debug("Connecting " + self.ip)
-                    let jid = XMPPJID(string: "guest@x.com")
-                    stream.myJID = jid
-                    stream.hostName = self.ip
-                    
-                    return stream.rx_connect
-                        .observeOn(MainScheduler.instance)
-                        .flatMap { [unowned self] connected -> Observable<Bool> in
-                            if connected {
-                                return self.connectionObservable
-                            }
-                            self.connected.value = false
-                            return Observable<Bool>.just(false)
-                    }
-                }
-            }
-    }
+        if connected.value {
+            return Observable.just(.success)
+        } else {
+            log.debug("Connecting " + self.ip)
+            let jid = XMPPJID(string: "guest@x.com")
+            stream.myJID = jid
+            stream.hostName = self.ip
 
+            return stream.rx_connect(with: 10)
+                .observeOn(MainScheduler.instance)
+                .flatMapFirst { [unowned self] connected -> Observable<ConnectorError> in
+                    if connected {
+                        return self.connectionObservable
+                    }
+                    self.connected.value = false
+                    return Observable.just(.failedStartingConnection)
+                }
+                .catchError { error in
+                    log.warning("error while connecting: \(error)")
+                    return Observable.just(error as! ConnectorError)
+                }
+        }
+    }
 
 }
 
