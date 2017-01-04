@@ -94,6 +94,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyBeaver-OSX.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyBeaver-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XMPPFramework.common-SystemInputActivityMonitor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,27 +122,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0BA7B3D142892DE03576D414A31467B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>103D481B84A45FB27A986B9521F43D09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>138ABCBD783777E2A656A1776E30A0E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>171AB0F9A42EB1B75E7CF7C17EBCB65F</key>
+		<key>15FE366DFD7167AA048117B21848E4FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28CE7265E5378C08A6550C6ED88D1676</key>
+		<key>23FECA95B91F5FD7DA8ABE748FAE5C20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>465890F3EB20E2AEF8388B1D0244A86C</key>
+		<key>446D6102939DC88C655BE69C34BB7C23</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4861279E63960BFC9FC94DEFC9CA451E</key>
+		<key>4EE973AB541ECB108439D7727EA812EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,22 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>639AF648F4AA224478B8346BD4E1BC40</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64D0954DAEAE96FDB39E22A7C94288C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8080C89A0E65E994E1C94384D7DE20D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85A006D2607A329DB3103DACE6B568C9</key>
+		<key>8CB2F452BA5031732BCA256375DF0E14</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DEE2CDD522B1C2DD9DF4D7F169857D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,12 +192,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1C098B3606B6D6D10BA2654BD9F8A4A</key>
+		<key>B95AEA3EB382117D608FE72BBB7596C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D662E6928B99202580153F585EC141FC</key>
+		<key>C1AB9F7538CD894F1828543EFC3EE80F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC8BF0165635EB61F830EB39B04CF165</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,17 +212,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDEB6BBFF9BE99F7B3AD53C8BFAD17EE</key>
+		<key>EDEFB9836BE1C69664550C09F487155B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFC0EE79123F513211BD9B3DF1173C7C</key>
+		<key>F0245D23BD89245B0AB182D8A3AAA068</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F74540B4546A1E82CD9678CF0A8C0531</key>
+		<key>FDF52E1CEBB87B12C9DE415C7F3D02A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

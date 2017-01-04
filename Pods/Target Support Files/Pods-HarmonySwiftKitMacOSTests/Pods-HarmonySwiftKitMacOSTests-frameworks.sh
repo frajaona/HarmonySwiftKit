@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack-OSX/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KissXML-OSX/KissXML.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa-OSX/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyBeaver-OSX/SwiftyBeaver.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMPPFramework.common-SystemInputActivityMonitor/XMPPFramework.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -99,5 +100,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack-OSX/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KissXML-OSX/KissXML.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa-OSX/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyBeaver-OSX/SwiftyBeaver.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMPPFramework.common-SystemInputActivityMonitor/XMPPFramework.framework"
 fi

@@ -6,10 +6,12 @@ def pods()
   pod 'XMPPFramework', :git => "https://github.com/robbiehanson/XMPPFramework.git", :branch => 'master'
   pod 'RxSwift', '~> 3.0'
   pod 'RxCocoa', '~> 3.0'
+  pod 'RxTest', '~> 3.0'
+  pod 'SwiftyBeaver', '~> 1.1.1'
 end
 
 def test_pods()
-  pod 'RxTest', '~> 3.0'
+  
 end
 
 target 'HarmonySwiftKitiOS' do
@@ -38,6 +40,7 @@ target 'HarmonySwiftKitMacOS' do
     inherit! :search_paths
     # Pods for testing
 	test_pods()
+    pod 'RxTest', '~> 3.0'
   end
 
 end

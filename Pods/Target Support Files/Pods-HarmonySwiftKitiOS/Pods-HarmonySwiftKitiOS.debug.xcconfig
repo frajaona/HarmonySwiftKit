@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 ENABLE_BITCODE = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket-iOS" "$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack-iOS" "$PODS_CONFIGURATION_BUILD_DIR/KissXML-iOS" "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa-iOS" "$PODS_CONFIGURATION_BUILD_DIR/RxSwift-iOS" "$PODS_CONFIGURATION_BUILD_DIR/XMPPFramework.common"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket-iOS" "$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack-iOS" "$PODS_CONFIGURATION_BUILD_DIR/KissXML-iOS" "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa-iOS" "$PODS_CONFIGURATION_BUILD_DIR/RxSwift-iOS" "$PODS_CONFIGURATION_BUILD_DIR/RxTest-iOS" "$PODS_CONFIGURATION_BUILD_DIR/SwiftyBeaver-iOS" "$PODS_CONFIGURATION_BUILD_DIR/XMPPFramework.common"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2 $(inherited) $(SDKROOT)/usr/include/libxml2 $(SDKROOT)/usr/include/libresolv
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack-iOS/CocoaLumberjack.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/KissXML-iOS/KissXML.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa-iOS/RxCocoa.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxSwift-iOS/RxSwift.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XMPPFramework.common/XMPPFramework.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "CocoaAsyncSocket" -framework "CocoaLumberjack" -framework "KissXML" -framework "RxCocoa" -framework "RxSwift" -framework "XMPPFramework"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack-iOS/CocoaLumberjack.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/KissXML-iOS/KissXML.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxCocoa-iOS/RxCocoa.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxSwift-iOS/RxSwift.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RxTest-iOS/RxTest.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SwiftyBeaver-iOS/SwiftyBeaver.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XMPPFramework.common/XMPPFramework.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "CocoaAsyncSocket" -framework "CocoaLumberjack" -framework "KissXML" -framework "RxCocoa" -framework "RxSwift" -framework "RxTest" -framework "SwiftyBeaver" -framework "XMPPFramework"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

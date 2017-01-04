@@ -84,20 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/RxSwift-iOS/RxSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/RxTest-iOS/RxTest.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack-iOS/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KissXML-iOS/KissXML.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa-iOS/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxSwift-iOS/RxSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxTest-iOS/RxTest.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyBeaver-iOS/SwiftyBeaver.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMPPFramework.common/XMPPFramework.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/RxSwift-iOS/RxSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/RxTest-iOS/RxTest.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/CocoaLumberjack-iOS/CocoaLumberjack.framework"
   install_framework "$BUILT_PRODUCTS_DIR/KissXML-iOS/KissXML.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa-iOS/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxSwift-iOS/RxSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxTest-iOS/RxTest.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyBeaver-iOS/SwiftyBeaver.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMPPFramework.common/XMPPFramework.framework"
 fi

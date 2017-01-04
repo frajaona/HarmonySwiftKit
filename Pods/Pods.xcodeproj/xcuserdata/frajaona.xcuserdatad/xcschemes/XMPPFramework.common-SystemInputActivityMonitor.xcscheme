@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "465890F3EB20E2AEF8388B1D0244A86C"
+               BlueprintIdentifier = "DC8BF0165635EB61F830EB39B04CF165"
                BuildableName = "XMPPFramework.framework"
                BlueprintName = "XMPPFramework.common-SystemInputActivityMonitor"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "465890F3EB20E2AEF8388B1D0244A86C"
+            BlueprintIdentifier = "DC8BF0165635EB61F830EB39B04CF165"
             BuildableName = "XMPPFramework.framework"
             BlueprintName = "XMPPFramework.common-SystemInputActivityMonitor"
             ReferencedContainer = "container:Pods.xcodeproj">

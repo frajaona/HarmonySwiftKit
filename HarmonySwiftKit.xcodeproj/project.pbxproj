@@ -13,6 +13,48 @@
 		97FD9BD3CC49D53224D081B2 /* Pods_HarmonySwiftKitMacOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1534BFCD40D30C29DC4AE746 /* Pods_HarmonySwiftKitMacOSTests.framework */; };
 		E4782090A4CA551E346C4D63 /* Pods_HarmonySwiftKitTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6C44ED976F0F3CE2BCEF27 /* Pods_HarmonySwiftKitTvOS.framework */; };
 		FABD20C7F46B474211F9CBC1 /* Pods_HarmonySwiftKitTvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83AC4D776CC7D5832C764DB /* Pods_HarmonySwiftKitTvOSTests.framework */; };
+		FC271A921E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
+		FC271A931E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
+		FC271A941E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
+		FC271A961E0EE8F9007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271A971E0EE8F9007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271A981E0EE8F9007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271A9F1E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AA01E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AA11E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AA41E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
+		FC271AA51E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
+		FC271AA61E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
+		FC271AA71E13C487007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271AA81E13C488007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271AA91E13C488007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
+		FC271AAA1E13C48F007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AAB1E13C48F007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AAC1E13C490007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
+		FC271AAF1E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB01E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB11E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB21E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB31E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB41E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AB71E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
+		FC271AB81E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
+		FC271AB91E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
+		FC271ABF1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC271AC01E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC271AC11E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC271AC41E166A7F007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271AC51E166A7F007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271AC61E166A7F007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271AC91E167145007079FE /* TestRxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC81E167145007079FE /* TestRxXMPPStream.swift */; };
+		FC271ACA1E167145007079FE /* TestRxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC81E167145007079FE /* TestRxXMPPStream.swift */; };
+		FC271ACB1E167145007079FE /* TestRxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC81E167145007079FE /* TestRxXMPPStream.swift */; };
+		FC271ACC1E16A9F8007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271ACD1E16A9F9007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271ACE1E16A9FA007079FE /* RxXMPPStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AC31E166A7F007079FE /* RxXMPPStream.swift */; };
+		FC271ACF1E16AC12007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC271AD01E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC271AD11E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
 		FC9B6BA51DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */; };
 		FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B6BA91DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift */; };
 		FC9B6BAC1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +109,15 @@
 		C69C8F067B1C92E8952BCA75 /* Pods-HarmonySwiftKitTvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonySwiftKitTvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarmonySwiftKitTvOSTests/Pods-HarmonySwiftKitTvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C83AC4D776CC7D5832C764DB /* Pods_HarmonySwiftKitTvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonySwiftKitTvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB585123B15F6CE5F3AF5002 /* Pods-HarmonySwiftKitTvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonySwiftKitTvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarmonySwiftKitTvOS/Pods-HarmonySwiftKitTvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FC271A911E0D7E56007079FE /* TestConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestConnector.swift; path = Tests/TestConnector.swift; sourceTree = "<group>"; };
+		FC271A951E0EE8F9007079FE /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connector.swift; path = Sources/Connector.swift; sourceTree = "<group>"; };
+		FC271A9E1E13BDE4007079FE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/Logging/Logger.swift; sourceTree = "<group>"; };
+		FC271AA31E13C373007079FE /* TestAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAuthenticator.swift; path = Tests/TestAuthenticator.swift; sourceTree = "<group>"; };
+		FC271AAE1E13C5E1007079FE /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/Connection/Authenticator.swift; sourceTree = "<group>"; };
+		FC271AB61E1523A0007079FE /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Tests/Random/Random.swift; sourceTree = "<group>"; };
+		FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxXMPPStreamDelegateProxy.swift; path = Sources/Connection/RxXMPPStreamDelegateProxy.swift; sourceTree = "<group>"; };
+		FC271AC31E166A7F007079FE /* RxXMPPStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxXMPPStream.swift; path = Sources/Connection/RxXMPPStream.swift; sourceTree = "<group>"; };
+		FC271AC81E167145007079FE /* TestRxXMPPStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestRxXMPPStream.swift; path = Tests/RxXMPPFramework/TestRxXMPPStream.swift; sourceTree = "<group>"; };
 		FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HarmonySwiftKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HarmonySwiftKitiOS.h; sourceTree = "<group>"; };
 		FC9B6B9F1DEEDB44006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -174,6 +225,49 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC271AA21E13BDEB007079FE /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				FC271A9E1E13BDE4007079FE /* Logger.swift */,
+			);
+			name = Logger;
+			sourceTree = "<group>";
+		};
+		FC271AAD1E13C5BE007079FE /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				FC271AC21E166A55007079FE /* Rx */,
+				FC271A951E0EE8F9007079FE /* Connector.swift */,
+				FC271AAE1E13C5E1007079FE /* Authenticator.swift */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		FC271AB51E152371007079FE /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				FC271AB61E1523A0007079FE /* Random.swift */,
+			);
+			name = Random;
+			sourceTree = "<group>";
+		};
+		FC271AC21E166A55007079FE /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */,
+				FC271AC31E166A7F007079FE /* RxXMPPStream.swift */,
+			);
+			name = Rx;
+			sourceTree = "<group>";
+		};
+		FC271AC71E1670FA007079FE /* RxXMPPFramework */ = {
+			isa = PBXGroup;
+			children = (
+				FC271AC81E167145007079FE /* TestRxXMPPStream.swift */,
+			);
+			name = RxXMPPFramework;
+			sourceTree = "<group>";
+		};
 		FC9B6B731DEEDA93006F6BDB = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +355,8 @@
 		FC9B6BEB1DEEDD29006F6BDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FC271AAD1E13C5BE007079FE /* Connection */,
+				FC271AA21E13BDEB007079FE /* Logger */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -268,6 +364,10 @@
 		FC9B6BEC1DEEDE34006F6BDB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FC271AC71E1670FA007079FE /* RxXMPPFramework */,
+				FC271AB51E152371007079FE /* Random */,
+				FC271A911E0D7E56007079FE /* TestConnector.swift */,
+				FC271AA31E13C373007079FE /* TestAuthenticator.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -437,6 +537,7 @@
 				TargetAttributes = {
 					FC9B6B9B1DEEDB44006F6BDB = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FC9B6BA31DEEDB44006F6BDB = {
@@ -445,6 +546,7 @@
 					};
 					FC9B6BB71DEEDB78006F6BDB = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FC9B6BBF1DEEDB78006F6BDB = {
@@ -453,6 +555,7 @@
 					};
 					FC9B6BD31DEEDBA1006F6BDB = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FC9B6BDB1DEEDBA1006F6BDB = {
@@ -761,6 +864,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271A961E0EE8F9007079FE /* Connector.swift in Sources */,
+				FC271A9F1E13BDE4007079FE /* Logger.swift in Sources */,
+				FC271ABF1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AC41E166A7F007079FE /* RxXMPPStream.swift in Sources */,
+				FC271AAF1E13C5E1007079FE /* Authenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,7 +876,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271AC91E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC271AAA1E13C48F007079FE /* Logger.swift in Sources */,
+				FC271ACC1E16A9F8007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */,
+				FC271ACF1E16AC12007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AA71E13C487007079FE /* Connector.swift in Sources */,
+				FC271A921E0D7E56007079FE /* TestConnector.swift in Sources */,
+				FC271AA41E13C373007079FE /* TestAuthenticator.swift in Sources */,
+				FC271AB01E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AB71E1523A0007079FE /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +893,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271A971E0EE8F9007079FE /* Connector.swift in Sources */,
+				FC271AA01E13BDE4007079FE /* Logger.swift in Sources */,
+				FC271AC01E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AC51E166A7F007079FE /* RxXMPPStream.swift in Sources */,
+				FC271AB11E13C5E1007079FE /* Authenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,7 +905,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271ACA1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC271AAB1E13C48F007079FE /* Logger.swift in Sources */,
+				FC271ACD1E16A9F9007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BC61DEEDB78006F6BDB /* HarmonySwiftKitMacOSTests.swift in Sources */,
+				FC271AD01E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AA81E13C488007079FE /* Connector.swift in Sources */,
+				FC271A931E0D7E56007079FE /* TestConnector.swift in Sources */,
+				FC271AA51E13C373007079FE /* TestAuthenticator.swift in Sources */,
+				FC271AB21E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AB81E1523A0007079FE /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +922,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271A981E0EE8F9007079FE /* Connector.swift in Sources */,
+				FC271AA11E13BDE4007079FE /* Logger.swift in Sources */,
+				FC271AC11E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AC61E166A7F007079FE /* RxXMPPStream.swift in Sources */,
+				FC271AB31E13C5E1007079FE /* Authenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +934,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC271ACB1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC271AAC1E13C490007079FE /* Logger.swift in Sources */,
+				FC271ACE1E16A9FA007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BE21DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift in Sources */,
+				FC271AD11E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FC271AA91E13C488007079FE /* Connector.swift in Sources */,
+				FC271A941E0D7E56007079FE /* TestConnector.swift in Sources */,
+				FC271AA61E13C373007079FE /* TestAuthenticator.swift in Sources */,
+				FC271AB41E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AB91E1523A0007079FE /* Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,6 +1071,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A86F800844ACAB10B078C836 /* Pods-HarmonySwiftKitiOS.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -937,6 +1083,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.doudou.HarmonySwiftKitiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -945,6 +1092,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9638517943301D5CCCC873BC /* Pods-HarmonySwiftKitiOS.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -964,6 +1112,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91160DF920237A93D901663E /* Pods-HarmonySwiftKitiOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doudou.HarmonySwiftKitiOSTests;
@@ -976,6 +1125,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10C1DC4473048C4F40C8AA1F /* Pods-HarmonySwiftKitiOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doudou.HarmonySwiftKitiOSTests;
@@ -988,6 +1138,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C460ECA38AAC6E344ED56D3 /* Pods-HarmonySwiftKitMacOS.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -1003,6 +1154,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1011,6 +1163,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68349A8664DBAB2C497B1A28 /* Pods-HarmonySwiftKitMacOS.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -1034,6 +1187,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 243F736422E1D9C46200F48D /* Pods-HarmonySwiftKitMacOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitMacOSTests/Info.plist;
@@ -1050,6 +1204,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890AED5E73FCBE329DA1958F /* Pods-HarmonySwiftKitMacOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitMacOSTests/Info.plist;
@@ -1066,6 +1221,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DB585123B15F6CE5F3AF5002 /* Pods-HarmonySwiftKitTvOS.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1078,6 +1234,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
@@ -1088,6 +1245,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0ADD306B71181C8A334EC88B /* Pods-HarmonySwiftKitTvOS.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1110,6 +1268,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2029745F1BD3C1948ACD400 /* Pods-HarmonySwiftKitTvOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitTvOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doudou.HarmonySwiftKitTvOSTests;
@@ -1124,6 +1283,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C69C8F067B1C92E8952BCA75 /* Pods-HarmonySwiftKitTvOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = HarmonySwiftKitTvOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doudou.HarmonySwiftKitTvOSTests;
@@ -1153,6 +1313,7 @@
 				FC9B6BAF1DEEDB44006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC9B6BB01DEEDB44006F6BDB /* Build configuration list for PBXNativeTarget "HarmonySwiftKitiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1161,6 +1322,7 @@
 				FC9B6BB21DEEDB44006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC9B6BC91DEEDB78006F6BDB /* Build configuration list for PBXNativeTarget "HarmonySwiftKitMacOS" */ = {
 			isa = XCConfigurationList;
@@ -1169,6 +1331,7 @@
 				FC9B6BCB1DEEDB78006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC9B6BCC1DEEDB78006F6BDB /* Build configuration list for PBXNativeTarget "HarmonySwiftKitMacOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1177,6 +1340,7 @@
 				FC9B6BCE1DEEDB78006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC9B6BE51DEEDBA1006F6BDB /* Build configuration list for PBXNativeTarget "HarmonySwiftKitTvOS" */ = {
 			isa = XCConfigurationList;
@@ -1185,6 +1349,7 @@
 				FC9B6BE71DEEDBA1006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FC9B6BE81DEEDBA1006F6BDB /* Build configuration list for PBXNativeTarget "HarmonySwiftKitTvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1193,6 +1358,7 @@
 				FC9B6BEA1DEEDBA1006F6BDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

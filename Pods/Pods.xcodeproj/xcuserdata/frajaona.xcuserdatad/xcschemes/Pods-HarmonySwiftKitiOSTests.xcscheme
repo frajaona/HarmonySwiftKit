@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D1C098B3606B6D6D10BA2654BD9F8A4A"
+               BlueprintIdentifier = "23FECA95B91F5FD7DA8ABE748FAE5C20"
                BuildableName = "Pods_HarmonySwiftKitiOSTests.framework"
                BlueprintName = "Pods-HarmonySwiftKitiOSTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D1C098B3606B6D6D10BA2654BD9F8A4A"
+            BlueprintIdentifier = "23FECA95B91F5FD7DA8ABE748FAE5C20"
             BuildableName = "Pods_HarmonySwiftKitiOSTests.framework"
             BlueprintName = "Pods-HarmonySwiftKitiOSTests"
             ReferencedContainer = "container:Pods.xcodeproj">
