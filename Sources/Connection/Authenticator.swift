@@ -10,93 +10,76 @@ import Foundation
 import XMPPFramework
 
 
-protocol AuthenticatorDelegate {
-
-    func onFinished(auth: Authenticator)
-}
-
 /**
 
- The Authenticator protocol allows to find a session token by authenticating on the Harmony Hub
- 
- The authentication process starts by sending an XMPPIQ stanza to the Harmony Hub.
- The Authenticator will then need to process each received XMPPIQ message to find the session token.
+ The Authenticator protocol allows to find a session token by parsing IQ message
 
  */
 protocol Authenticator {
 
-    var token: String? { get }
-    var started: Bool { get }
-    func start()
-    func handle(iq message: XMPPIQ) -> AuthenticatorError
+    /**
+     Handle IQ messages to find an identity token
+
+     - parameter message: the IQ message to process
+
+     - returns: A tuple containing an AuthenticatorError enum that indicates the process status
+     and the token if found. **The token is only different from nil if AuthenticatorError is .success**
+
+     */
+    func handle(iq message: XMPPIQ) -> (AuthenticatorError, String?)
 }
 
+/**
+ Authenticator errors
+ */
 enum AuthenticatorError {
-    case success, invalidIqAttributes, noOaChild, invalidOaErrorCode, noOaValue, invalidOaValue
+    /// Authentication succeeded, token found
+    case success
+    /// Found invalid IQ attributes
+    case invalidIqAttributes
+    /// No <oa> child found in IQ
+    case noOaChild
+    /// Invalide error code found in <oa> element
+    case invalidOaErrorCode
+    /// <oa> element has no value
+    case noOaValue
+    /// <oa> element has an invalid value
+    case invalidOaValue
 }
 
 class DefaultAuthenticator: Authenticator {
 
-    let log = Logger.get()
+    fileprivate let log = Logger.get()
 
-    var token: String?
-    var started: Bool = false
-
-    /**
-     Start authenticator
-    */
-    func start() {
-        started = true
-    }
-
-
-    /**
-     Stop authenticator
-    */
-    func stop() {
-        started = false
-    }
-
-
-    /**
-     Handle IQ messages to find an identity token
-     
-     - parameter message: the IQ message to process
-
-     - returns: An AuthenticatorError enum that indicates the process status
-
-    */
-    func handle(iq message: XMPPIQ) -> AuthenticatorError {
+    func handle(iq message: XMPPIQ) -> (AuthenticatorError, String?) {
         guard let type = message.type(), type == "get", let to = message.attributeStringValue(forName: "to"), to == "guest" else {
             log.debug("receive iq message that has invalid attributes: \(message)")
-            return .invalidIqAttributes
+            return (.invalidIqAttributes, nil)
         }
 
         guard let child = message.childElement(), let name = child.name, name == "oa" else {
             log.debug("receive iq message that does not contain an oa child: \(message)")
-            return .noOaChild
+            return (.noOaChild, nil)
         }
 
         guard let errorCode = child.attributeStringValue(forName: "errorcode"), errorCode == "200" else {
             log.debug("receive iq message containing an oa child with an invalid errorcode: \(child)")
-            return .invalidOaErrorCode
+            return (.invalidOaErrorCode, nil)
         }
 
         guard let value = message.stringValue else {
             log.debug("receive iq message containing an oa that does not have a value: \(child)")
-            return .noOaValue
+            return (.noOaValue, nil)
         }
 
         let values = parse(stringValue: value)
 
         guard let status = values["status"], status == "succeeded", let identity = values["identity"] else {
             log.debug("receive iq message containing an oa that have an invalid value: \(value)")
-            return .invalidOaValue
+            return (.invalidOaValue, nil)
         }
 
-        token = identity
-
-        return .success
+        return (.success, identity)
     }
 
 

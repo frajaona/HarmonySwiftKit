@@ -10,6 +10,9 @@ import XMPPFramework
 import RxCocoa
 import RxSwift
 
+/**
+ Reactive version of the XMPPStream class
+ */
 class RxXMPPStream: XMPPStream {
 
     var delegate: XMPPStreamDelegate? {
@@ -29,6 +32,18 @@ class RxXMPPStream: XMPPStream {
         return RxXMPPStreamDelegateProxy.proxyForObject(self)
     }
 
+    /**
+     Observable sequence of boolean for stream connection with connect(withTimeout:) method.
+     
+     Performing of connection starts after observer is subscribed and not after invoking this method.
+     
+     **connection will be performed per subscribed observer.**
+     
+     Any error when calling connect(withTimeout:) will cause observed sequence to terminate with error.
+     
+     - parameter timeout: URL of `NSURLRequest` request.
+     - returns: Observable sequence of boolean indicating if the stream is connected.
+     */
     func rx_connect(with timeout: TimeInterval) -> Observable<Bool> {
         return Observable.create { observer in
             do {
@@ -37,11 +52,15 @@ class RxXMPPStream: XMPPStream {
                 observer.onCompleted()
             } catch {
                 observer.onError(error)
+                observer.onCompleted()
             }
             return Disposables.create()
         }
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamWillConnect() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamWillConnect(_:)))
             .map { parameters in
@@ -49,6 +68,9 @@ class RxXMPPStream: XMPPStream {
         }
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamDidConnect() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamDidConnect(_:)))
             .map { parameters in
@@ -56,6 +78,9 @@ class RxXMPPStream: XMPPStream {
         }
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamConnectDidTimeout() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamConnectDidTimeout(_:)))
             .map { parameters in
@@ -63,21 +88,33 @@ class RxXMPPStream: XMPPStream {
         }
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamDidReceiveXMPPMessage() -> Observable<(RxXMPPStream, XMPPMessage)> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.receiveXMPPMessageSubject
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamDidReceiveIq() -> Observable<(RxXMPPStream, XMPPIQ)> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.receiveIQSubject
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamConnectWillBind() -> Observable<RxXMPPStream> {
         let proxy = RxXMPPStreamDelegateProxy.proxyForObject(self)
         return proxy.willBindSubject
     }
 
+    /**
+     Reactive wrapper for `delegate` message.
+     */
     func rx_xmppStreamDidAuthenticate() -> Observable<RxXMPPStream> {
         return rx_delegate.methodInvoked(#selector(XMPPStreamDelegate.xmppStreamDidAuthenticate(_:)))
             .map { parameters in

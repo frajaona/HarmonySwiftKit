@@ -23,134 +23,82 @@ class TestAuthenticator: XCTestCase {
         super.tearDown()
     }
 
-    func testStart() {
-        let authenticator = DefaultAuthenticator()
-        authenticator.start()
-        XCTAssertTrue(authenticator.started)
-    }
-
-    func testStop() {
-        let authenticator = DefaultAuthenticator()
-        authenticator.start()
-        XCTAssertTrue(authenticator.started)
-        authenticator.stop()
-        XCTAssertFalse(authenticator.started)
-    }
     
     func testAuthenticationSucceeded() {
         let iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
-        let message: XMPPIQ?
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        let message = try? XMPPIQ(xmlString: iqMessage)
         let authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.success)
-        XCTAssertNotNil(authenticator.token)
-        if let token = authenticator.token {
-            XCTAssertEqual(token, "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
-        }
+        let (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .success)
+        XCTAssertEqual(token, "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
     }
 
     func testAuthenticationFailedBecauseOfWrongIq() {
         // wrong type
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"set\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
-        var message: XMPPIQ?
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        var message = try? XMPPIQ(xmlString: iqMessage)
         var authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidIqAttributes)
-        XCTAssertNil(authenticator.token)
+        var (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidIqAttributes)
+        XCTAssertNil(token)
 
         // No identity field
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        message = try? XMPPIQ(xmlString: iqMessage)
         authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidIqAttributes)
-        XCTAssertNil(authenticator.token)
+        (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidIqAttributes)
+        XCTAssertNil(token)
     }
 
     func testAuthenticationFailedBecauseOfWrongOaValue() {
         // No status field
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
-        var message: XMPPIQ?
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        var message = try? XMPPIQ(xmlString: iqMessage)
         var authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidOaValue)
-        XCTAssertNil(authenticator.token)
+        var (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidOaValue)
+        XCTAssertNil(token)
 
         // No identity field
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        message = try? XMPPIQ(xmlString: iqMessage)
         authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidOaValue)
-        XCTAssertNil(authenticator.token)
+        (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidOaValue)
+        XCTAssertNil(token)
     }
 
     func testAuthenticationFailedBecauseOfWrongOa() {
         // No errorcode field
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
-        var message: XMPPIQ?
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        var message = try? XMPPIQ(xmlString: iqMessage)
         var authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidOaErrorCode)
-        XCTAssertNil(authenticator.token)
+        var (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidOaErrorCode)
+        XCTAssertNil(token)
 
 
         // Wrong error code
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"100\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        message = try? XMPPIQ(xmlString: iqMessage)
         authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.invalidOaErrorCode)
-        XCTAssertNil(authenticator.token)
+        (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .invalidOaErrorCode)
+        XCTAssertNil(token)
 
 
         // No oa child
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><toto xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</toto></iq>"
 
-        do {
-            message = try XMPPIQ(xmlString: iqMessage)
-        } catch {
-            message = nil
-            XCTFail("Failed initializing IQ message")
-        }
+        message = try? XMPPIQ(xmlString: iqMessage)
         authenticator = DefaultAuthenticator()
-        XCTAssertEqual(authenticator.handle(iq: message!), AuthenticatorError.noOaChild)
-        XCTAssertNil(authenticator.token)
+        (result, token) = authenticator.handle(iq: message!)
+        XCTAssertEqual(result, .noOaChild)
+        XCTAssertNil(token)
     }
 
     func testValueParsingSuccess() {
@@ -205,10 +153,10 @@ class TestAuthenticator: XCTestCase {
     }
 
     func testValueParsingWithWrongValueSomewhere() {
-        let str = String.any()
-        let str2 = String.any()
-        let value = String.any()
-        let value2 = String.any()
+        let str = "dfsfsdfnkjjknlpkml,"
+        let str2 = "dpoiuutrtr"
+        let value = "wxcvc"
+        let value2 = "gfdfdkjh"
 
         var strValue = str + "=" + value + ":" + str2 + "="
         var authenticator = DefaultAuthenticator()
