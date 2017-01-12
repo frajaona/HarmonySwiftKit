@@ -13,6 +13,12 @@
 		97FD9BD3CC49D53224D081B2 /* Pods_HarmonySwiftKitMacOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1534BFCD40D30C29DC4AE746 /* Pods_HarmonySwiftKitMacOSTests.framework */; };
 		E4782090A4CA551E346C4D63 /* Pods_HarmonySwiftKitTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6C44ED976F0F3CE2BCEF27 /* Pods_HarmonySwiftKitTvOS.framework */; };
 		FABD20C7F46B474211F9CBC1 /* Pods_HarmonySwiftKitTvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83AC4D776CC7D5832C764DB /* Pods_HarmonySwiftKitTvOSTests.framework */; };
+		FC027A8D1E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
+		FC027A8E1E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
+		FC027A8F1E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
+		FC027A901E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
+		FC027A911E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
+		FC027A921E227D00003CA95A /* NoBindingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */; };
 		FC271A921E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
 		FC271A931E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
 		FC271A941E0D7E56007079FE /* TestConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A911E0D7E56007079FE /* TestConnector.swift */; };
@@ -22,21 +28,21 @@
 		FC271A9F1E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
 		FC271AA01E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
 		FC271AA11E13BDE4007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
-		FC271AA41E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
-		FC271AA51E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
-		FC271AA61E13C373007079FE /* TestAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestAuthenticator.swift */; };
+		FC271AA41E13C373007079FE /* TestTokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestTokenFinder.swift */; };
+		FC271AA51E13C373007079FE /* TestTokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestTokenFinder.swift */; };
+		FC271AA61E13C373007079FE /* TestTokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AA31E13C373007079FE /* TestTokenFinder.swift */; };
 		FC271AA71E13C487007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
 		FC271AA81E13C488007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
 		FC271AA91E13C488007079FE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A951E0EE8F9007079FE /* Connector.swift */; };
 		FC271AAA1E13C48F007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
 		FC271AAB1E13C48F007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
 		FC271AAC1E13C490007079FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271A9E1E13BDE4007079FE /* Logger.swift */; };
-		FC271AAF1E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
-		FC271AB01E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
-		FC271AB11E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
-		FC271AB21E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
-		FC271AB31E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
-		FC271AB41E13C5E1007079FE /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* Authenticator.swift */; };
+		FC271AAF1E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
+		FC271AB01E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
+		FC271AB11E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
+		FC271AB21E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
+		FC271AB31E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
+		FC271AB41E13C5E1007079FE /* TokenFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AAE1E13C5E1007079FE /* TokenFinder.swift */; };
 		FC271AB71E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
 		FC271AB81E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
 		FC271AB91E1523A0007079FE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271AB61E1523A0007079FE /* Random.swift */; };
@@ -55,6 +61,27 @@
 		FC271ACF1E16AC12007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
 		FC271AD01E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
 		FC271AD11E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */; };
+		FC34E2D51E26875000A68872 /* TestDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D41E26875000A68872 /* TestDeviceManager.swift */; };
+		FC34E2D61E26875300A68872 /* TestDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D41E26875000A68872 /* TestDeviceManager.swift */; };
+		FC34E2D71E26875400A68872 /* TestDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D41E26875000A68872 /* TestDeviceManager.swift */; };
+		FC34E2D91E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2DA1E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2DB1E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2DC1E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2DD1E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2DE1E27876E00A68872 /* ControlGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2D81E27876E00A68872 /* ControlGroup.swift */; };
+		FC34E2E01E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E11E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E21E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E31E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E41E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E51E27DE0E00A68872 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2DF1E27DE0E00A68872 /* Function.swift */; };
+		FC34E2E71E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2E81E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2E91E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2EA1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2EB1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2EC1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
 		FC9B6BA51DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */; };
 		FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B6BA91DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift */; };
 		FC9B6BAC1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +91,51 @@
 		FC9B6BDD1DEEDBA1006F6BDB /* HarmonySwiftKitTvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9B6BD41DEEDBA1006F6BDB /* HarmonySwiftKitTvOS.framework */; };
 		FC9B6BE21DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B6BE11DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift */; };
 		FC9B6BE41DEEDBA1006F6BDB /* HarmonySwiftKitTvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B6BD61DEEDBA1006F6BDB /* HarmonySwiftKitTvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC9E0DED1E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DEE1E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DEF1E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DF01E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DF11E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DF21E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FCFD5A3C1E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
+		FCFD5A3E1E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
+		FCFD5A401E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
+		FCFD5A421E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A431E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A441E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A451E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A461E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A471E23DAEF00161358 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A411E23DAEF00161358 /* DeviceManager.swift */; };
+		FCFD5A4A1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A4B1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A4C1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A4D1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A4E1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A4F1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */; };
+		FCFD5A511E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A521E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A531E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A541E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A551E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A561E24FF3E00161358 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A501E24FF3E00161358 /* Configuration.swift */; };
+		FCFD5A581E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A591E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A5A1E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A5B1E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A5C1E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A5D1E25072B00161358 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A571E25072B00161358 /* Activity.swift */; };
+		FCFD5A5F1E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A601E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A611E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A621E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A631E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A641E250EA300161358 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A5E1E250EA300161358 /* Device.swift */; };
+		FCFD5A661E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
+		FCFD5A671E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
+		FCFD5A681E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
+		FCFD5A691E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
+		FCFD5A6A1E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
+		FCFD5A6B1E26324700161358 /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A651E26324700161358 /* DeviceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,15 +181,20 @@
 		C69C8F067B1C92E8952BCA75 /* Pods-HarmonySwiftKitTvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonySwiftKitTvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarmonySwiftKitTvOSTests/Pods-HarmonySwiftKitTvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C83AC4D776CC7D5832C764DB /* Pods_HarmonySwiftKitTvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarmonySwiftKitTvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB585123B15F6CE5F3AF5002 /* Pods-HarmonySwiftKitTvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarmonySwiftKitTvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarmonySwiftKitTvOS/Pods-HarmonySwiftKitTvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoBindingDelegate.swift; path = Sources/Connection/NoBindingDelegate.swift; sourceTree = "<group>"; };
 		FC271A911E0D7E56007079FE /* TestConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestConnector.swift; path = Tests/TestConnector.swift; sourceTree = "<group>"; };
 		FC271A951E0EE8F9007079FE /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connector.swift; path = Sources/Connector.swift; sourceTree = "<group>"; };
 		FC271A9E1E13BDE4007079FE /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/Logging/Logger.swift; sourceTree = "<group>"; };
-		FC271AA31E13C373007079FE /* TestAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAuthenticator.swift; path = Tests/TestAuthenticator.swift; sourceTree = "<group>"; };
-		FC271AAE1E13C5E1007079FE /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/Connection/Authenticator.swift; sourceTree = "<group>"; };
+		FC271AA31E13C373007079FE /* TestTokenFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTokenFinder.swift; path = Tests/TestTokenFinder.swift; sourceTree = "<group>"; };
+		FC271AAE1E13C5E1007079FE /* TokenFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenFinder.swift; path = Sources/Connection/TokenFinder.swift; sourceTree = "<group>"; };
 		FC271AB61E1523A0007079FE /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Tests/Random/Random.swift; sourceTree = "<group>"; };
 		FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxXMPPStreamDelegateProxy.swift; path = Sources/Connection/RxXMPPStreamDelegateProxy.swift; sourceTree = "<group>"; };
 		FC271AC31E166A7F007079FE /* RxXMPPStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxXMPPStream.swift; path = Sources/Connection/RxXMPPStream.swift; sourceTree = "<group>"; };
 		FC271AC81E167145007079FE /* TestRxXMPPStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestRxXMPPStream.swift; path = Tests/RxXMPPFramework/TestRxXMPPStream.swift; sourceTree = "<group>"; };
+		FC34E2D41E26875000A68872 /* TestDeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDeviceManager.swift; path = Tests/TestDeviceManager.swift; sourceTree = "<group>"; };
+		FC34E2D81E27876E00A68872 /* ControlGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlGroup.swift; path = Sources/Response/ControlGroup.swift; sourceTree = "<group>"; };
+		FC34E2DF1E27DE0E00A68872 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Function.swift; path = Sources/Response/Function.swift; sourceTree = "<group>"; };
+		FC34E2E61E27DF2500A68872 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Sources/Response/Action.swift; sourceTree = "<group>"; };
 		FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HarmonySwiftKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HarmonySwiftKitiOS.h; sourceTree = "<group>"; };
 		FC9B6B9F1DEEDB44006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +213,14 @@
 		FC9B6BDC1DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonySwiftKitTvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9B6BE11DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonySwiftKitTvOSTests.swift; sourceTree = "<group>"; };
 		FC9B6BE31DEEDBA1006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC9E0DEC1E2284860066799B /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/Connection/Authenticator.swift; sourceTree = "<group>"; };
+		FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDeviceService.swift; path = Tests/TestDeviceService.swift; sourceTree = "<group>"; };
+		FCFD5A411E23DAEF00161358 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceManager.swift; path = Sources/DeviceManager.swift; sourceTree = "<group>"; };
+		FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XMPPIQ+Oa.swift"; path = "Sources/Response/XMPPIQ+Oa.swift"; sourceTree = "<group>"; };
+		FCFD5A501E24FF3E00161358 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Response/Configuration.swift; sourceTree = "<group>"; };
+		FCFD5A571E25072B00161358 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = Sources/Response/Activity.swift; sourceTree = "<group>"; };
+		FCFD5A5E1E250EA300161358 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Sources/Response/Device.swift; sourceTree = "<group>"; };
+		FCFD5A651E26324700161358 /* DeviceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceService.swift; path = Sources/Service/DeviceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +323,8 @@
 			children = (
 				FC271AC21E166A55007079FE /* Rx */,
 				FC271A951E0EE8F9007079FE /* Connector.swift */,
-				FC271AAE1E13C5E1007079FE /* Authenticator.swift */,
+				FC271AAE1E13C5E1007079FE /* TokenFinder.swift */,
+				FC9E0DEC1E2284860066799B /* Authenticator.swift */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -256,6 +342,7 @@
 			children = (
 				FC271ABE1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift */,
 				FC271AC31E166A7F007079FE /* RxXMPPStream.swift */,
+				FC027A8C1E227D00003CA95A /* NoBindingDelegate.swift */,
 			);
 			name = Rx;
 			sourceTree = "<group>";
@@ -355,6 +442,9 @@
 		FC9B6BEB1DEEDD29006F6BDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FCFD5A411E23DAEF00161358 /* DeviceManager.swift */,
+				FCFD5A6C1E26329F00161358 /* Service */,
+				FCFD5A481E24F29D00161358 /* Response */,
 				FC271AAD1E13C5BE007079FE /* Connection */,
 				FC271AA21E13BDEB007079FE /* Logger */,
 			);
@@ -367,9 +457,33 @@
 				FC271AC71E1670FA007079FE /* RxXMPPFramework */,
 				FC271AB51E152371007079FE /* Random */,
 				FC271A911E0D7E56007079FE /* TestConnector.swift */,
-				FC271AA31E13C373007079FE /* TestAuthenticator.swift */,
+				FC271AA31E13C373007079FE /* TestTokenFinder.swift */,
+				FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */,
+				FC34E2D41E26875000A68872 /* TestDeviceManager.swift */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		FCFD5A481E24F29D00161358 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */,
+				FCFD5A501E24FF3E00161358 /* Configuration.swift */,
+				FCFD5A571E25072B00161358 /* Activity.swift */,
+				FCFD5A5E1E250EA300161358 /* Device.swift */,
+				FC34E2D81E27876E00A68872 /* ControlGroup.swift */,
+				FC34E2DF1E27DE0E00A68872 /* Function.swift */,
+				FC34E2E61E27DF2500A68872 /* Action.swift */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		FCFD5A6C1E26329F00161358 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FCFD5A651E26324700161358 /* DeviceService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -864,11 +978,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A4A1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC027A8D1E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FC9E0DED1E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2D91E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A5F1E250EA300161358 /* Device.swift in Sources */,
+				FC34E2E71E27DF2500A68872 /* Action.swift in Sources */,
 				FC271A961E0EE8F9007079FE /* Connector.swift in Sources */,
 				FC271A9F1E13BDE4007079FE /* Logger.swift in Sources */,
 				FC271ABF1E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FCFD5A511E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC34E2E01E27DE0E00A68872 /* Function.swift in Sources */,
 				FC271AC41E166A7F007079FE /* RxXMPPStream.swift in Sources */,
-				FC271AAF1E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FCFD5A421E23DAEF00161358 /* DeviceManager.swift in Sources */,
+				FCFD5A661E26324700161358 /* DeviceService.swift in Sources */,
+				FCFD5A581E25072B00161358 /* Activity.swift in Sources */,
+				FC271AAF1E13C5E1007079FE /* TokenFinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,16 +1001,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A591E25072B00161358 /* Activity.swift in Sources */,
 				FC271AC91E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC9E0DEE1E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2DA1E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A601E250EA300161358 /* Device.swift in Sources */,
 				FC271AAA1E13C48F007079FE /* Logger.swift in Sources */,
+				FCFD5A4B1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E2E81E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACC1E16A9F8007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */,
+				FCFD5A521E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC027A8E1E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FCFD5A3C1E23DA2E00161358 /* TestDeviceService.swift in Sources */,
 				FC271ACF1E16AC12007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
 				FC271AA71E13C487007079FE /* Connector.swift in Sources */,
+				FC34E2D51E26875000A68872 /* TestDeviceManager.swift in Sources */,
+				FCFD5A671E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A921E0D7E56007079FE /* TestConnector.swift in Sources */,
-				FC271AA41E13C373007079FE /* TestAuthenticator.swift in Sources */,
-				FC271AB01E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AA41E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC271AB01E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FCFD5A431E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB71E1523A0007079FE /* Random.swift in Sources */,
+				FC34E2E11E27DE0E00A68872 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,11 +1031,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A4C1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC027A8F1E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FC9E0DEF1E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2DB1E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A611E250EA300161358 /* Device.swift in Sources */,
+				FC34E2E91E27DF2500A68872 /* Action.swift in Sources */,
 				FC271A971E0EE8F9007079FE /* Connector.swift in Sources */,
 				FC271AA01E13BDE4007079FE /* Logger.swift in Sources */,
 				FC271AC01E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FCFD5A531E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC34E2E21E27DE0E00A68872 /* Function.swift in Sources */,
 				FC271AC51E166A7F007079FE /* RxXMPPStream.swift in Sources */,
-				FC271AB11E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FCFD5A441E23DAEF00161358 /* DeviceManager.swift in Sources */,
+				FCFD5A681E26324700161358 /* DeviceService.swift in Sources */,
+				FCFD5A5A1E25072B00161358 /* Activity.swift in Sources */,
+				FC271AB11E13C5E1007079FE /* TokenFinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,16 +1054,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A5B1E25072B00161358 /* Activity.swift in Sources */,
 				FC271ACA1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC9E0DF01E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2DC1E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A621E250EA300161358 /* Device.swift in Sources */,
 				FC271AAB1E13C48F007079FE /* Logger.swift in Sources */,
+				FCFD5A4D1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E2EA1E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACD1E16A9F9007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BC61DEEDB78006F6BDB /* HarmonySwiftKitMacOSTests.swift in Sources */,
+				FCFD5A541E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC027A901E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FCFD5A3E1E23DA2E00161358 /* TestDeviceService.swift in Sources */,
 				FC271AD01E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
 				FC271AA81E13C488007079FE /* Connector.swift in Sources */,
+				FC34E2D61E26875300A68872 /* TestDeviceManager.swift in Sources */,
+				FCFD5A691E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A931E0D7E56007079FE /* TestConnector.swift in Sources */,
-				FC271AA51E13C373007079FE /* TestAuthenticator.swift in Sources */,
-				FC271AB21E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AA51E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC271AB21E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FCFD5A451E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB81E1523A0007079FE /* Random.swift in Sources */,
+				FC34E2E31E27DE0E00A68872 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -922,11 +1084,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A4E1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC027A911E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FC9E0DF11E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2DD1E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A631E250EA300161358 /* Device.swift in Sources */,
+				FC34E2EB1E27DF2500A68872 /* Action.swift in Sources */,
 				FC271A981E0EE8F9007079FE /* Connector.swift in Sources */,
 				FC271AA11E13BDE4007079FE /* Logger.swift in Sources */,
 				FC271AC11E16685E007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
+				FCFD5A551E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC34E2E41E27DE0E00A68872 /* Function.swift in Sources */,
 				FC271AC61E166A7F007079FE /* RxXMPPStream.swift in Sources */,
-				FC271AB31E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FCFD5A461E23DAEF00161358 /* DeviceManager.swift in Sources */,
+				FCFD5A6A1E26324700161358 /* DeviceService.swift in Sources */,
+				FCFD5A5C1E25072B00161358 /* Activity.swift in Sources */,
+				FC271AB31E13C5E1007079FE /* TokenFinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,16 +1107,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFD5A5D1E25072B00161358 /* Activity.swift in Sources */,
 				FC271ACB1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
+				FC9E0DF21E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2DE1E27876E00A68872 /* ControlGroup.swift in Sources */,
+				FCFD5A641E250EA300161358 /* Device.swift in Sources */,
 				FC271AAC1E13C490007079FE /* Logger.swift in Sources */,
+				FCFD5A4F1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E2EC1E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACE1E16A9FA007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BE21DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift in Sources */,
+				FCFD5A561E24FF3E00161358 /* Configuration.swift in Sources */,
+				FC027A921E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
+				FCFD5A401E23DA2E00161358 /* TestDeviceService.swift in Sources */,
 				FC271AD11E16AC13007079FE /* RxXMPPStreamDelegateProxy.swift in Sources */,
 				FC271AA91E13C488007079FE /* Connector.swift in Sources */,
+				FC34E2D71E26875400A68872 /* TestDeviceManager.swift in Sources */,
+				FCFD5A6B1E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A941E0D7E56007079FE /* TestConnector.swift in Sources */,
-				FC271AA61E13C373007079FE /* TestAuthenticator.swift in Sources */,
-				FC271AB41E13C5E1007079FE /* Authenticator.swift in Sources */,
+				FC271AA61E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC271AB41E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FCFD5A471E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB91E1523A0007079FE /* Random.swift in Sources */,
+				FC34E2E51E27DE0E00A68872 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

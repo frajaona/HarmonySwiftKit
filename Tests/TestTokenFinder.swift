@@ -1,5 +1,5 @@
 //
-//  TestAuthenticator.swift
+//  TestTokenFinder.swift
 //  HarmonySwiftKit
 //
 //  Created by Fred Rajaona on 28/12/2016.
@@ -8,10 +8,15 @@
 
 import XCTest
 import XMPPFramework
+import RxSwift
 
-class TestAuthenticator: XCTestCase {
+class TestTokenFinder: XCTestCase {
 
+    fileprivate let testIp = "192.168.240.156"
+    fileprivate let testUsername = "guest@x.com"
+    fileprivate let testPassword = "guest"
     fileprivate let log = Logger.get()
+    fileprivate let disposeBag = DisposeBag()
 
     override func setUp() {
         super.setUp()
@@ -23,12 +28,36 @@ class TestAuthenticator: XCTestCase {
         super.tearDown()
     }
 
+    func testRealAuthenticationSuccess() {
+        let e = expectation(description: "token found")
+        let stream = RxXMPPStream()!
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: testUsername, password: testPassword)
+        let tokenFinder = DefaultTokenFinder()
+        connector.connect()
+            .asObservable()
+            .flatMap { success in
+                return tokenFinder.tokenRequest(sender: stream)
+            }
+            .subscribe(onNext: { token in
+                XCTAssertEqual(token, "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
+                e.fulfill()
+            })
+            .addDisposableTo(disposeBag)
+
+        waitForExpectations(timeout: 20, handler: { error in
+            if let error = error {
+                XCTFail("testRealAuthenticationSuccess timed out: \(error)")
+            }
+        })
+        stream.close()
+
+    }
     
     func testAuthenticationSucceeded() {
         let iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
         let message = try? XMPPIQ(xmlString: iqMessage)
-        let authenticator = DefaultAuthenticator()
-        let (result, token) = authenticator.handle(iq: message!)
+        let tokenFinder = DefaultTokenFinder()
+        let (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .success)
         XCTAssertEqual(token, "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
     }
@@ -37,8 +66,8 @@ class TestAuthenticator: XCTestCase {
         // wrong type
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"set\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
         var message = try? XMPPIQ(xmlString: iqMessage)
-        var authenticator = DefaultAuthenticator()
-        var (result, token) = authenticator.handle(iq: message!)
+        var tokenFinder = DefaultTokenFinder()
+        var (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidIqAttributes)
         XCTAssertNil(token)
 
@@ -46,8 +75,8 @@ class TestAuthenticator: XCTestCase {
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
         message = try? XMPPIQ(xmlString: iqMessage)
-        authenticator = DefaultAuthenticator()
-        (result, token) = authenticator.handle(iq: message!)
+        tokenFinder = DefaultTokenFinder()
+        (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidIqAttributes)
         XCTAssertNil(token)
     }
@@ -56,8 +85,8 @@ class TestAuthenticator: XCTestCase {
         // No status field
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
         var message = try? XMPPIQ(xmlString: iqMessage)
-        var authenticator = DefaultAuthenticator()
-        var (result, token) = authenticator.handle(iq: message!)
+        var tokenFinder = DefaultTokenFinder()
+        var (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidOaValue)
         XCTAssertNil(token)
 
@@ -65,8 +94,8 @@ class TestAuthenticator: XCTestCase {
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
         message = try? XMPPIQ(xmlString: iqMessage)
-        authenticator = DefaultAuthenticator()
-        (result, token) = authenticator.handle(iq: message!)
+        tokenFinder = DefaultTokenFinder()
+        (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidOaValue)
         XCTAssertNil(token)
     }
@@ -75,8 +104,8 @@ class TestAuthenticator: XCTestCase {
         // No errorcode field
         var iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
         var message = try? XMPPIQ(xmlString: iqMessage)
-        var authenticator = DefaultAuthenticator()
-        var (result, token) = authenticator.handle(iq: message!)
+        var tokenFinder = DefaultTokenFinder()
+        var (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidOaErrorCode)
         XCTAssertNil(token)
 
@@ -85,8 +114,8 @@ class TestAuthenticator: XCTestCase {
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><oa xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"100\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</oa></iq>"
 
         message = try? XMPPIQ(xmlString: iqMessage)
-        authenticator = DefaultAuthenticator()
-        (result, token) = authenticator.handle(iq: message!)
+        tokenFinder = DefaultTokenFinder()
+        (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .invalidOaErrorCode)
         XCTAssertNil(token)
 
@@ -95,8 +124,8 @@ class TestAuthenticator: XCTestCase {
         iqMessage = "<iq xmlns=\"jabber:client\" id=\"21345678-1234-5678-1234-123456789012-1\" to=\"guest\" type=\"get\"><toto xmlns=\"connect.logitech.com\" mime=\"vnd.logitech.connect/vnd.logitech.pair\" errorcode=\"200\" errorstring=\"OK\">serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:hubId=106:identity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub</toto></iq>"
 
         message = try? XMPPIQ(xmlString: iqMessage)
-        authenticator = DefaultAuthenticator()
-        (result, token) = authenticator.handle(iq: message!)
+        tokenFinder = DefaultTokenFinder()
+        (result, token) = tokenFinder.handle(iq: message!)
         XCTAssertEqual(result, .noOaChild)
         XCTAssertNil(token)
     }
@@ -104,8 +133,8 @@ class TestAuthenticator: XCTestCase {
     func testValueParsingSuccess() {
         let value = "serverIdentity=865b9699-cfc2-4bef-92fd-03ac2c45bbf0:status=succeeded:protocolVersion={XMPP=\"1.0\", HTTP=\"1.0\", RF=\"1.0\", WEBSOCKET=\"1.0\"}:hubProfiles={Harmony=\"2.0\"}:productId=Pimento:friendlyName=Harmony Hub"
 
-        let authenticator = DefaultAuthenticator()
-        let values = authenticator.parse(stringValue: value)
+        let tokenFinder = DefaultTokenFinder()
+        let values = tokenFinder.parse(stringValue: value)
         XCTAssertFalse(values.isEmpty)
         XCTAssertNotNil(values["serverIdentity"])
         XCTAssertEqual(values["serverIdentity"], "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
@@ -123,8 +152,8 @@ class TestAuthenticator: XCTestCase {
 
     func testValueParsingWithEmptyString() {
         let value = ""
-        let authenticator = DefaultAuthenticator()
-        let values = authenticator.parse(stringValue: value)
+        let tokenFinder = DefaultTokenFinder()
+        let values = tokenFinder.parse(stringValue: value)
         XCTAssertTrue(values.isEmpty)
     }
 
@@ -132,8 +161,8 @@ class TestAuthenticator: XCTestCase {
         let key = String.any()
         let value = String.any()
         let strValue = key + "=" + value
-        let authenticator = DefaultAuthenticator()
-        let values = authenticator.parse(stringValue: strValue)
+        let tokenFinder = DefaultTokenFinder()
+        let values = tokenFinder.parse(stringValue: strValue)
         XCTAssertEqual(values.count, 1)
         XCTAssertEqual(values[key], value)
     }
@@ -141,14 +170,14 @@ class TestAuthenticator: XCTestCase {
     func testValueParsingWithWrongSingleValue() {
         let str = String.any()
         var strValue = str + "="
-        var authenticator = DefaultAuthenticator()
-        var values = authenticator.parse(stringValue: strValue)
+        var tokenFinder = DefaultTokenFinder()
+        var values = tokenFinder.parse(stringValue: strValue)
         XCTAssertEqual(values.count, 1)
         XCTAssertEqual(values[str], "")
 
         strValue = "=" + str
-        authenticator = DefaultAuthenticator()
-        values = authenticator.parse(stringValue: strValue)
+        tokenFinder = DefaultTokenFinder()
+        values = tokenFinder.parse(stringValue: strValue)
         XCTAssertTrue(values.isEmpty)
     }
 
@@ -159,26 +188,26 @@ class TestAuthenticator: XCTestCase {
         let value2 = "gfdfdkjh"
 
         var strValue = str + "=" + value + ":" + str2 + "="
-        var authenticator = DefaultAuthenticator()
-        var values = authenticator.parse(stringValue: strValue)
+        var tokenFinder = DefaultTokenFinder()
+        var values = tokenFinder.parse(stringValue: strValue)
         XCTAssertEqual(values.count, 2)
         XCTAssertEqual(values[str], value)
         XCTAssertEqual(values[str2], "")
 
         strValue = str + "=" + value + ":=" + value2
-        authenticator = DefaultAuthenticator()
-        values = authenticator.parse(stringValue: strValue)
+        tokenFinder = DefaultTokenFinder()
+        values = tokenFinder.parse(stringValue: strValue)
         XCTAssertEqual(values.count, 1)
         XCTAssertEqual(values[str], value)
 
         strValue = "=" + value + ":=" + value2
-        authenticator = DefaultAuthenticator()
-        values = authenticator.parse(stringValue: strValue)
+        tokenFinder = DefaultTokenFinder()
+        values = tokenFinder.parse(stringValue: strValue)
         XCTAssertTrue(values.isEmpty)
 
         strValue = "=:"
-        authenticator = DefaultAuthenticator()
-        values = authenticator.parse(stringValue: strValue)
+        tokenFinder = DefaultTokenFinder()
+        values = tokenFinder.parse(stringValue: strValue)
         XCTAssertTrue(values.isEmpty)
     }
 

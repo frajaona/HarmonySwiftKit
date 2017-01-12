@@ -13,6 +13,10 @@ import XMPPFramework
 
 class TestConnector: XCTestCase {
 
+
+    fileprivate let testIp = "192.168.240.156"
+    fileprivate let testUsername = "guest@x.com"
+    fileprivate let testPassword = "guest"
     fileprivate let log = Logger.get()
     fileprivate let disposeBag = DisposeBag()
     fileprivate var observer: TestableObserver<Bool>!
@@ -28,11 +32,31 @@ class TestConnector: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+    func testSignIn() {
+        let e = expectation(description: "first connection process ended")
+        let stream = RxXMPPStream()!
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: "865b9699-cfc2-4bef-92fd-03ac2c45bbf0@x.com", password: "865b9699-cfc2-4bef-92fd-03ac2c45bbf0")
+        connector.connect()
+            .subscribe(onNext: { result in
+                self.log.debug("first connected process returned: \(result)")
+                XCTAssertEqual(result, .success)
+                e.fulfill()
+            })
+            .addDisposableTo(disposeBag)
+
+        waitForExpectations(timeout: 20, handler:  { error in
+            if let error = error {
+                XCTFail("first testConnectSuccess timed out: \(error)")
+            }
+        })
+        stream.close()
+    }
     
     func testConnectSuccess() {
         var e = expectation(description: "first connection process ended")
         let stream = RxXMPPStream()!
-        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: testUsername, password: testPassword)
         connector.connected
             .asObservable()
             .subscribe(observer)
@@ -69,6 +93,7 @@ class TestConnector: XCTestCase {
         })
         
         XCTAssertEqual(observer.events.count, 2)
+        stream.close()
     }
 
     func testConnectFailureOnRequestingAuthentication() {
@@ -76,11 +101,11 @@ class TestConnector: XCTestCase {
         class MockRxXMPPStream: RxXMPPStream {
 
             override func authenticate(_ auth: XMPPSASLAuthentication!) throws {
-                throw ConnectorError.failedRequestingAuthentication
+                throw AuthenticatorError.failedStartingAuthentication
             }
         }
         let stream = MockRxXMPPStream()!
-        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: testUsername, password: testPassword)
         connector.connected
             .asObservable()
             .subscribe(observer)
@@ -98,6 +123,7 @@ class TestConnector: XCTestCase {
                 XCTFail("first testConnectSuccess timed out: \(error)")
             }
         })
+        stream.close()
 
     }
 
@@ -111,7 +137,7 @@ class TestConnector: XCTestCase {
 
         }
         let stream = MockRxXMPPStream()!
-        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: testUsername, password: testPassword)
         connector.connected
             .asObservable()
             .subscribe(observer)
@@ -129,6 +155,7 @@ class TestConnector: XCTestCase {
                 XCTFail("first testConnectSuccess timed out: \(error)")
             }
         })
+        stream.close()
         
     }
 
@@ -142,7 +169,7 @@ class TestConnector: XCTestCase {
 
         }
         let stream = MockRxXMPPStream()!
-        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator())
+        let connector = DefaultConnector(with: stream, authenticator: DefaultAuthenticator(), ip: testIp, username: testUsername, password: testPassword)
         connector.connected
             .asObservable()
             .subscribe(observer)
@@ -160,6 +187,7 @@ class TestConnector: XCTestCase {
                 XCTFail("first testConnectSuccess timed out: \(error)")
             }
         })
+        stream.close()
         
     }
     

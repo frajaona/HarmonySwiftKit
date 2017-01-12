@@ -19,15 +19,27 @@ class RxXMPPStream: XMPPStream {
         willSet {
             if let d = delegate {
                 removeDelegate(d)
+                delegates.removeValue(forKey: ObjectIdentifier(d))
             }
         }
         didSet {
             if let d = delegate {
                 addDelegate(d, delegateQueue: DispatchQueue.main)
+                delegates[ObjectIdentifier(d)] = d
             }
         }
     }
 
+    fileprivate var delegates = [ObjectIdentifier: XMPPStreamDelegate]()
+
+    func close() {
+        delegates.forEach { _, delegate in
+            removeDelegate(delegate)
+        }
+        delegates.removeAll()
+        disconnect()
+    }
+    
     var rx_delegate: DelegateProxy {
         return RxXMPPStreamDelegateProxy.proxyForObject(self)
     }
