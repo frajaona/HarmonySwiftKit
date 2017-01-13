@@ -82,6 +82,21 @@
 		FC34E2EA1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
 		FC34E2EB1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
 		FC34E2EC1E27DF2500A68872 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2E61E27DF2500A68872 /* Action.swift */; };
+		FC34E2EE1E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2EF1E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2F01E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2F11E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2F21E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2F31E28D6AD00A68872 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2ED1E28D6AD00A68872 /* Command.swift */; };
+		FC34E2F51E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2F61E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2F71E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2F81E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2F91E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2FA1E290E7100A68872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2F41E290E7100A68872 /* Response.swift */; };
+		FC34E2FC1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
+		FC34E2FD1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
+		FC34E2FE1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
 		FC9B6BA51DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */; };
 		FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B6BA91DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift */; };
 		FC9B6BAC1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -195,6 +210,9 @@
 		FC34E2D81E27876E00A68872 /* ControlGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlGroup.swift; path = Sources/Response/ControlGroup.swift; sourceTree = "<group>"; };
 		FC34E2DF1E27DE0E00A68872 /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Function.swift; path = Sources/Response/Function.swift; sourceTree = "<group>"; };
 		FC34E2E61E27DF2500A68872 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Sources/Response/Action.swift; sourceTree = "<group>"; };
+		FC34E2ED1E28D6AD00A68872 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Command.swift; path = Sources/Service/Command.swift; sourceTree = "<group>"; };
+		FC34E2F41E290E7100A68872 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Response/Response.swift; sourceTree = "<group>"; };
+		FC34E2FB1E2921E600A68872 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Tests/Config.swift; sourceTree = "<group>"; };
 		FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HarmonySwiftKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HarmonySwiftKitiOS.h; sourceTree = "<group>"; };
 		FC9B6B9F1DEEDB44006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -460,6 +478,7 @@
 				FC271AA31E13C373007079FE /* TestTokenFinder.swift */,
 				FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */,
 				FC34E2D41E26875000A68872 /* TestDeviceManager.swift */,
+				FC34E2FB1E2921E600A68872 /* Config.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -474,6 +493,7 @@
 				FC34E2D81E27876E00A68872 /* ControlGroup.swift */,
 				FC34E2DF1E27DE0E00A68872 /* Function.swift */,
 				FC34E2E61E27DF2500A68872 /* Action.swift */,
+				FC34E2F41E290E7100A68872 /* Response.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -482,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				FCFD5A651E26324700161358 /* DeviceService.swift */,
+				FC34E2ED1E28D6AD00A68872 /* Command.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -978,9 +999,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC34E2EE1E28D6AD00A68872 /* Command.swift in Sources */,
 				FCFD5A4A1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
 				FC027A8D1E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
 				FC9E0DED1E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2F51E290E7100A68872 /* Response.swift in Sources */,
 				FC34E2D91E27876E00A68872 /* ControlGroup.swift in Sources */,
 				FCFD5A5F1E250EA300161358 /* Device.swift in Sources */,
 				FC34E2E71E27DF2500A68872 /* Action.swift in Sources */,
@@ -1020,10 +1043,13 @@
 				FCFD5A671E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A921E0D7E56007079FE /* TestConnector.swift in Sources */,
 				FC271AA41E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC34E2FC1E2921E600A68872 /* Config.swift in Sources */,
 				FC271AB01E13C5E1007079FE /* TokenFinder.swift in Sources */,
 				FCFD5A431E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB71E1523A0007079FE /* Random.swift in Sources */,
 				FC34E2E11E27DE0E00A68872 /* Function.swift in Sources */,
+				FC34E2EF1E28D6AD00A68872 /* Command.swift in Sources */,
+				FC34E2F61E290E7100A68872 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,9 +1057,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC34E2F01E28D6AD00A68872 /* Command.swift in Sources */,
 				FCFD5A4C1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
 				FC027A8F1E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
 				FC9E0DEF1E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2F71E290E7100A68872 /* Response.swift in Sources */,
 				FC34E2DB1E27876E00A68872 /* ControlGroup.swift in Sources */,
 				FCFD5A611E250EA300161358 /* Device.swift in Sources */,
 				FC34E2E91E27DF2500A68872 /* Action.swift in Sources */,
@@ -1073,10 +1101,13 @@
 				FCFD5A691E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A931E0D7E56007079FE /* TestConnector.swift in Sources */,
 				FC271AA51E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC34E2FD1E2921E600A68872 /* Config.swift in Sources */,
 				FC271AB21E13C5E1007079FE /* TokenFinder.swift in Sources */,
 				FCFD5A451E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB81E1523A0007079FE /* Random.swift in Sources */,
 				FC34E2E31E27DE0E00A68872 /* Function.swift in Sources */,
+				FC34E2F11E28D6AD00A68872 /* Command.swift in Sources */,
+				FC34E2F81E290E7100A68872 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,9 +1115,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC34E2F21E28D6AD00A68872 /* Command.swift in Sources */,
 				FCFD5A4E1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
 				FC027A911E227D00003CA95A /* NoBindingDelegate.swift in Sources */,
 				FC9E0DF11E2284860066799B /* Authenticator.swift in Sources */,
+				FC34E2F91E290E7100A68872 /* Response.swift in Sources */,
 				FC34E2DD1E27876E00A68872 /* ControlGroup.swift in Sources */,
 				FCFD5A631E250EA300161358 /* Device.swift in Sources */,
 				FC34E2EB1E27DF2500A68872 /* Action.swift in Sources */,
@@ -1126,10 +1159,13 @@
 				FCFD5A6B1E26324700161358 /* DeviceService.swift in Sources */,
 				FC271A941E0D7E56007079FE /* TestConnector.swift in Sources */,
 				FC271AA61E13C373007079FE /* TestTokenFinder.swift in Sources */,
+				FC34E2FE1E2921E600A68872 /* Config.swift in Sources */,
 				FC271AB41E13C5E1007079FE /* TokenFinder.swift in Sources */,
 				FCFD5A471E23DAEF00161358 /* DeviceManager.swift in Sources */,
 				FC271AB91E1523A0007079FE /* Random.swift in Sources */,
 				FC34E2E51E27DE0E00A68872 /* Function.swift in Sources */,
+				FC34E2F31E28D6AD00A68872 /* Command.swift in Sources */,
+				FC34E2FA1E290E7100A68872 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,12 +13,12 @@ import XMPPFramework
 protocol DeviceService {
 
     func configuration() -> Observable<Configuration>
+
+    func currentActivity(for configuration: Configuration) -> Observable<Activity>
 }
 
 class DefaultDeviceService: DeviceService {
 
-    fileprivate let xmlns = "connect.logitech.com"
-    fileprivate let configRequestMime = "vnd.logitech.harmony/vnd.logitech.harmony.engine?config"
 
     fileprivate let log = Logger.get()
     fileprivate let stream: RxXMPPStream
@@ -34,70 +34,35 @@ class DefaultDeviceService: DeviceService {
         self.id = id
     }
 
-    func configuration() -> Observable<Configuration> {
-        let log = self.log
+    func currentActivity(for configuration: Configuration) -> Observable<Activity> {
         let sender = self.stream
-        return Observable<RxXMPPStream>.create { observer in
-                log.debug("Requesting configuration")
-                let query = XMLElement(name: "oa", xmlns: self.xmlns)!
-                query.addAttribute(withName: "mime", stringValue: self.configRequestMime)
-
-                let iq = XMPPIQ(type: "get", child: query)!
-                iq.addAttribute(withName: "from", stringValue: self.username)
-                iq.addAttribute(withName: "id", stringValue: self.id)
-                sender.send(iq)
-                observer.onNext(sender)
-                observer.onCompleted()
-                return Disposables.create()
-            }
+        let command = GetCurrentActivityCommand()
+        let response = GetCurrentActivityResponse(username: username, configuration: configuration)
+        return command.executeRequest(sender: sender, username: username, id: id)
             .flatMap { sender in
                 return sender.rx_xmppStreamDidReceiveIq()
             }
             .observeOn(backgroundScheduler)
             .flatMap { sender, iq in
-                return self.findConfiguration(in: iq)
+                return response.find(in: iq)
+            }
+            .observeOn(MainScheduler.instance)
+    }
+
+    func configuration() -> Observable<Configuration> {
+        let sender = self.stream
+        let command = GetConfigurationCommand()
+        let response = GetConfigurationResponse(username: username)
+        return command.executeRequest(sender: sender, username: username, id: id)
+            .flatMap { sender in
+                return sender.rx_xmppStreamDidReceiveIq()
+            }
+            .observeOn(backgroundScheduler)
+            .flatMap { sender, iq in
+                return response.find(in: iq)
             }
             .observeOn(MainScheduler.instance)
         
 
-    }
-
-
-    func findConfiguration(in iq: XMPPIQ) -> Observable<Configuration> {
-        return Observable.create { observer in
-            let result = self.handle(iq: iq)
-            if let result = result {
-                observer.onNext(result)
-                observer.onCompleted()
-            }
-            return Disposables.create()
-        }
-    }
-
-    func handle(iq message: XMPPIQ) -> Configuration? {
-        guard message.isGet(), let to = message.recipient, to == username else {
-            log.debug("receive iq message that has invalid attributes: \(message)")
-            return nil
-        }
-
-        guard let value = try? message.getOaValue() else {
-            return nil
-        }
-
-        let configuration = parseConfiguration(stringValue: value)
-
-        return configuration
-        
-    }
-
-
-    func parseConfiguration(stringValue value: String) -> Configuration? {
-        guard let jsonValue = try? JSONSerialization.jsonObject(with: value.data(using: String.Encoding.utf8)!) else {
-            return nil
-        }
-        guard let json = jsonValue as? [String: Any] else {
-            return nil
-        }
-        return DefaultConfiguration(json: json)
     }
 }

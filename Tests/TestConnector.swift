@@ -14,7 +14,7 @@ import XMPPFramework
 class TestConnector: XCTestCase {
 
 
-    fileprivate let testIp = "192.168.240.156"
+    fileprivate let testIp = Config.testIp
     fileprivate let testUsername = "guest@x.com"
     fileprivate let testPassword = "guest"
     fileprivate let log = Logger.get()

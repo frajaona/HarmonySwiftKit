@@ -10,7 +10,7 @@ import Foundation
 
 struct Action {
 
-    let action: String
+    fileprivate let action: String
 
     let command: String?
 

@@ -55,9 +55,9 @@ class RxXMPPStreamDelegateProxy: DelegateProxy, DelegateProxyType, XMPPStreamDel
         receiveIQSubject.onNext((sender as! RxXMPPStream, iq))
         if let delegate = self._forwardToDelegate {
             let result = delegate.xmppStream?(sender, didReceive: iq)
-            return result ?? false
+            return result ?? true
         }
-        return false
+        return true
     }
     
 }

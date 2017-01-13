@@ -14,6 +14,7 @@ protocol DeviceManager {
 
     var devices: Observable<[Device]> { get }
     var activities: Observable<[Activity]> { get }
+    var currentActivity: Observable<Activity> { get }
 }
 
 
@@ -29,18 +30,23 @@ class DefaultDeviceManager: DeviceManager {
     fileprivate(set) var devices: Observable<[Device]>
     fileprivate(set) var activities: Observable<[Activity]>
 
+    fileprivate(set) var currentActivity: Observable<Activity>
+
     init(deviceService: DeviceService) {
         self.service = deviceService
         self.configuration = service.configuration().shareReplay(1)
 
-        devices = configuration.map { config in
+        self.devices = configuration.map { config in
             return config.devices ?? [Device]()
         }
 
-        activities = configuration.map { config in
+        self.activities = configuration.map { config in
             return config.activities ?? [Activity]()
         }
 
+        self.currentActivity = configuration.flatMap { config in
+            return deviceService.currentActivity(for: config)
+        }
     }
 
 

@@ -12,10 +12,10 @@ import RxSwift
 class TestDeviceService: XCTestCase {
 
     fileprivate let disposeBag = DisposeBag()
-    fileprivate let testIp = "192.168.240.156"
-    fileprivate let testUser = "865b9699-cfc2-4bef-92fd-03ac2c45bbf0"
-    fileprivate let testPassword = "865b9699-cfc2-4bef-92fd-03ac2c45bbf0"
-    fileprivate let testId = "21345678-1234-5678-1234-123456789012-1"
+    fileprivate let testIp = Config.testIp
+    fileprivate let testUser = Config.testUser
+    fileprivate let testPassword = Config.testPassword
+    fileprivate let testId = Config.testId
     fileprivate let log = Logger.get()
 
     override func setUp() {

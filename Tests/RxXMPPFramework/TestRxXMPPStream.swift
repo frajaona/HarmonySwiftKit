@@ -129,7 +129,7 @@ class TestRxXMPPStream: XCTestCase {
         XCTAssertNotNil(stream?.delegate)
         XCTAssertEqual(iqMessageObserver.events.count, 0)
         if let delegate = stream?.delegate {
-            XCTAssertFalse(delegate.xmppStream!(stream, didReceive: message))
+            XCTAssertTrue(delegate.xmppStream!(stream, didReceive: message))
         }
         XCTAssertEqual(observer.events.count, 0)
         XCTAssertEqual(defaultMessageObserver.events.count, 0)
@@ -143,7 +143,7 @@ class TestRxXMPPStream: XCTestCase {
 
         message = XMPPIQ(name: "test2")
         if let delegate = stream?.delegate {
-            XCTAssertFalse(delegate.xmppStream!(stream, didReceive: message))
+            XCTAssertTrue(delegate.xmppStream!(stream, didReceive: message))
         }
         XCTAssertEqual(observer.events.count, 0)
         XCTAssertEqual(defaultMessageObserver.events.count, 0)
