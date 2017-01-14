@@ -30,7 +30,6 @@ class TestDeviceManager: XCTestCase {
     
     func testDeviceObservable() {
         let stream = RxXMPPStream()!
-        //signinStream(stream: stream)
         var e = expectation(description: "waiting device list")
         let deviceManager = DefaultDeviceManager(deviceService: DefaultDeviceService(stream: stream, ip: testIp, username: testUser, id: testId))
 
@@ -64,7 +63,6 @@ class TestDeviceManager: XCTestCase {
 
     func testCurrentActivityObservable() {
         let stream = RxXMPPStream()!
-        //signinStream(stream: stream)
         let deviceManager = DefaultDeviceManager(deviceService: DefaultDeviceService(stream: stream, ip: testIp, username: testUser, id: testId))
 
         var e = expectation(description: "waiting device list")
@@ -118,7 +116,6 @@ class TestDeviceManager: XCTestCase {
 
     func testDeviceActionObservable() {
         let stream = RxXMPPStream()!
-        //signinStream(stream: stream)
         var e = expectation(description: "waiting device list")
         var foundDevices: [Device]?
         let deviceManager = DefaultDeviceManager(deviceService: DefaultDeviceService(stream: stream, ip: testIp, username: testUser, id: testId))
@@ -139,24 +136,15 @@ class TestDeviceManager: XCTestCase {
         
         if let devices = foundDevices {
             let muteFunction = devices.first(where: { device in
-                if let name = device.name, name == "Naim Dac" {
-                    return true
-                }
-                return false
+                return device.name == "Naim Dac"
             })?
-            .controlGroups?
+            .controlGroups
             .first(where: { group in
-                if let name = group.name, name == "Volume" {
-                    return true
-                }
-                return false
+                return group.name == "Volume"
             })?
-            .functions?
+            .functions
             .first(where: { function in
-                if let name = function.name, name == "Mute" {
-                    return true
-                }
-                return false
+                return function.name == "Mute"
             })
             if let action = muteFunction?.action {
                 self.log.debug("sending click")

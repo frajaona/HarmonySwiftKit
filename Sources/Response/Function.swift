@@ -12,18 +12,20 @@ struct Function {
 
     let json: [String: Any]
 
-    let name: String?
-    let label: String?
-    let action: Action?
+    let name: String
+    let label: String
+    let action: Action
 
-    init(json: [String: Any]) {
+    init?(json: [String: Any]) {
         self.json = json
-        self.name = json["name"] as? String
-        self.label = json["label"] as? String
-        if let rawAction = json["action"] as? String {
-            self.action = Action(action: rawAction)
-        } else {
-            self.action = nil
+        guard  let name = json["name"] as? String,
+            let label = json["label"] as? String,
+            let rawAction = json["action"] as? String,
+            let action = Action(action: rawAction) else {
+            return nil
         }
+        self.name = name
+        self.label = label
+        self.action = action
     }
 }

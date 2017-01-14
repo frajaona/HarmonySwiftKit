@@ -12,25 +12,28 @@ public struct Device {
 
     fileprivate let json: [String: Any]
 
-    let name: String?
+    let name: String
 
-    let id: String?
+    let id: String
 
-    let type: String?
+    let type: String
 
-    let controlGroups: [ControlGroup]?
+    let controlGroups: [ControlGroup]
 
-    init(json: [String: Any]) {
+    init?(json: [String: Any]) {
         self.json = json
-        self.name = json["label"] as? String
-        self.id = json["id"] as? String
-        self.type = json["type"] as? String
-        if let list = json["controlGroup"] as? [[String: Any]] {
-            self.controlGroups = list.flatMap { group in
-                return ControlGroup(json: group)
-            }
-        } else {
-            self.controlGroups = nil
+        guard let name = json["label"] as? String,
+            let id = json["id"] as? String,
+            let type = json["type"] as? String,
+            let list = json["controlGroup"] as? [[String: Any]] else {
+            return nil
         }
+        self.name = name
+        self.id = id
+        self.type = type
+        self.controlGroups = list.flatMap { group in
+            return ControlGroup(json: group)
+        }
+
     }
 }

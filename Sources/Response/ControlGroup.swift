@@ -12,18 +12,18 @@ struct ControlGroup {
 
     let json: [String: Any]
 
-    let name: String?
-    let functions: [Function]?
+    let name: String
+    let functions: [Function]
 
-    init(json: [String: Any]) {
+    init?(json: [String: Any]) {
         self.json = json
-        self.name = json["name"] as? String
-        if let list = json["function"] as? [[String: Any]] {
-            self.functions = list.flatMap { function in
-                return Function(json: function)
-            }
-        } else {
-            self.functions = nil
+        guard let name = json["name"] as? String,
+            let list = json["function"] as? [[String: Any]] else {
+            return nil
+        }
+        self.name = name
+        self.functions = list.flatMap { function in
+            return Function(json: function)
         }
     }
 }

@@ -123,6 +123,6 @@ struct ExecuteActionCommand: Command {
     }
 
     var oaValue: String? {
-        return "action={\"type\"::\"\(action.type!)\",\"deviceId\"::\"\(action.deviceId!)\",\"command\"::\"\(action.command!)\"}:status=\(state)"
+        return "action={\"type\"::\"\(action.type)\",\"deviceId\"::\"\(action.deviceId)\",\"command\"::\"\(action.command)\"}:status=\(state)"
     }
 }
