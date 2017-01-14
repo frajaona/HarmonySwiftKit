@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Device {
+public struct Device {
 
-    let json: [String: Any]
+    fileprivate let json: [String: Any]
 
     let name: String?
 

@@ -97,6 +97,12 @@
 		FC34E2FC1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
 		FC34E2FD1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
 		FC34E2FE1E2921E600A68872 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FB1E2921E600A68872 /* Config.swift */; };
+		FC34E3001E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
+		FC34E3011E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
+		FC34E3021E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
+		FC34E3031E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
+		FC34E3041E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
+		FC34E3051E292C2400A68872 /* HarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */; };
 		FC9B6BA51DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */; };
 		FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9B6BA91DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift */; };
 		FC9B6BAC1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -213,6 +219,7 @@
 		FC34E2ED1E28D6AD00A68872 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Command.swift; path = Sources/Service/Command.swift; sourceTree = "<group>"; };
 		FC34E2F41E290E7100A68872 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Response/Response.swift; sourceTree = "<group>"; };
 		FC34E2FB1E2921E600A68872 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Tests/Config.swift; sourceTree = "<group>"; };
+		FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarmonyHub.swift; path = Sources/HarmonyHub.swift; sourceTree = "<group>"; };
 		FC9B6B9C1DEEDB44006F6BDB /* HarmonySwiftKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HarmonySwiftKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9B6B9E1DEEDB44006F6BDB /* HarmonySwiftKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HarmonySwiftKitiOS.h; sourceTree = "<group>"; };
 		FC9B6B9F1DEEDB44006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -460,6 +467,7 @@
 		FC9B6BEB1DEEDD29006F6BDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FC34E2FF1E292C2400A68872 /* HarmonyHub.swift */,
 				FCFD5A411E23DAEF00161358 /* DeviceManager.swift */,
 				FCFD5A6C1E26329F00161358 /* Service */,
 				FCFD5A481E24F29D00161358 /* Response */,
@@ -1017,6 +1025,7 @@
 				FCFD5A661E26324700161358 /* DeviceService.swift in Sources */,
 				FCFD5A581E25072B00161358 /* Activity.swift in Sources */,
 				FC271AAF1E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FC34E3001E292C2400A68872 /* HarmonyHub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1040,7 @@
 				FCFD5A601E250EA300161358 /* Device.swift in Sources */,
 				FC271AAA1E13C48F007079FE /* Logger.swift in Sources */,
 				FCFD5A4B1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E3011E292C2400A68872 /* HarmonyHub.swift in Sources */,
 				FC34E2E81E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACC1E16A9F8007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BAA1DEEDB44006F6BDB /* HarmonySwiftKitiOSTests.swift in Sources */,
@@ -1075,6 +1085,7 @@
 				FCFD5A681E26324700161358 /* DeviceService.swift in Sources */,
 				FCFD5A5A1E25072B00161358 /* Activity.swift in Sources */,
 				FC271AB11E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FC34E3021E292C2400A68872 /* HarmonyHub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1100,7 @@
 				FCFD5A621E250EA300161358 /* Device.swift in Sources */,
 				FC271AAB1E13C48F007079FE /* Logger.swift in Sources */,
 				FCFD5A4D1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E3031E292C2400A68872 /* HarmonyHub.swift in Sources */,
 				FC34E2EA1E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACD1E16A9F9007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BC61DEEDB78006F6BDB /* HarmonySwiftKitMacOSTests.swift in Sources */,
@@ -1133,6 +1145,7 @@
 				FCFD5A6A1E26324700161358 /* DeviceService.swift in Sources */,
 				FCFD5A5C1E25072B00161358 /* Activity.swift in Sources */,
 				FC271AB31E13C5E1007079FE /* TokenFinder.swift in Sources */,
+				FC34E3041E292C2400A68872 /* HarmonyHub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,6 +1160,7 @@
 				FCFD5A641E250EA300161358 /* Device.swift in Sources */,
 				FC271AAC1E13C490007079FE /* Logger.swift in Sources */,
 				FCFD5A4F1E24F2FB00161358 /* XMPPIQ+Oa.swift in Sources */,
+				FC34E3051E292C2400A68872 /* HarmonyHub.swift in Sources */,
 				FC34E2EC1E27DF2500A68872 /* Action.swift in Sources */,
 				FC271ACE1E16A9FA007079FE /* RxXMPPStream.swift in Sources */,
 				FC9B6BE21DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift in Sources */,

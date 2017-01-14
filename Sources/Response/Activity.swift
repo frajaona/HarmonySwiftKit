@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Activity {
+public struct Activity {
 
-    let json: [String: Any]
+    fileprivate let json: [String: Any]
 
     let name: String?
 

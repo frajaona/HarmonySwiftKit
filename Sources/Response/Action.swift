@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Action {
+public struct Action {
 
     fileprivate let action: String
 

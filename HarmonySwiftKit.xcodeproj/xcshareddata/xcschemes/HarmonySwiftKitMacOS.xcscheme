@@ -38,6 +38,11 @@
                BlueprintName = "HarmonySwiftKitMacOSTests"
                ReferencedContainer = "container:HarmonySwiftKit.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TestDeviceManager/testToto()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

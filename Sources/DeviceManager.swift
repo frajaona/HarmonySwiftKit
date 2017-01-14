@@ -10,15 +10,19 @@ import Foundation
 import RxSwift
 import XMPPFramework
 
-protocol DeviceManager {
+public protocol DeviceManager {
 
     var devices: Observable<[Device]> { get }
     var activities: Observable<[Activity]> { get }
     var currentActivity: Observable<Activity> { get }
+
+    func click(action: Action) -> Observable<Bool>
+    func press(action: Action) -> Observable<Bool>
+    func release(action: Action) -> Observable<Bool>
 }
 
 
-class DefaultDeviceManager: DeviceManager {
+public class DefaultDeviceManager: DeviceManager {
 
     fileprivate let log = Logger.get()
     fileprivate let service: DeviceService
@@ -27,10 +31,10 @@ class DefaultDeviceManager: DeviceManager {
 
     fileprivate var configuration: Observable<Configuration>
 
-    fileprivate(set) var devices: Observable<[Device]>
-    fileprivate(set) var activities: Observable<[Activity]>
+    fileprivate(set) public var devices: Observable<[Device]>
+    fileprivate(set) public var activities: Observable<[Activity]>
 
-    fileprivate(set) var currentActivity: Observable<Activity>
+    fileprivate(set) public var currentActivity: Observable<Activity>
 
     init(deviceService: DeviceService) {
         self.service = deviceService
@@ -49,5 +53,16 @@ class DefaultDeviceManager: DeviceManager {
         }
     }
 
+    public func click(action: Action) -> Observable<Bool> {
+        return service.click(for: action)
+    }
+
+    public func press(action: Action) -> Observable<Bool> {
+        return service.touchDown(for: action)
+    }
+
+    public func release(action: Action) -> Observable<Bool> {
+        return service.touchUp(for: action)
+    }
 
 }

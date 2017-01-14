@@ -32,7 +32,7 @@ class TestDeviceService: XCTestCase {
         let stream = RxXMPPStream()!
         signinStream(stream: stream)
         let e = expectation(description: "waiting device list")
-        let deviceService = DefaultDeviceService(stream: stream, username: testUser, id: testId)
+        let deviceService = DefaultDeviceService(stream: stream, ip: testIp, username: testUser, id: testId)
         deviceService.configuration()
             .subscribe(onNext: { configuration in
                 XCTAssertNotNil(configuration.devices)

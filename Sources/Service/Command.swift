@@ -92,21 +92,20 @@ struct ClickCommand: Command {
     fileprivate let pressCommand: ExecuteActionCommand
     fileprivate let releaseCommand: ExecuteActionCommand
     fileprivate let delay: TimeInterval
-    fileprivate let queue: DispatchQueue
 
-    init(action: Action, delay: TimeInterval = 0.1, queue: DispatchQueue) {
+    init(action: Action, delay: TimeInterval = 0.1) {
         self.pressCommand = ExecuteActionCommand(action: action, pressed: true)
         self.releaseCommand = ExecuteActionCommand(action: action, pressed: false)
         self.delay = delay
-        self.queue = queue
     }
 
     func executeRequest(sender: RxXMPPStream, username: String, id: String) -> Observable<RxXMPPStream> {
-        return pressCommand.executeRequest(sender: sender, username: username, id: id)
-                    .flatMap { sender in
-                        return self.releaseCommand.executeRequest(sender: sender, username: username, id: id)
-                            .delay(self.delay, scheduler: MainScheduler.instance)
-                    }
+        return pressCommand
+            .executeRequest(sender: sender, username: username, id: id)
+            .delay(self.delay, scheduler: MainScheduler.instance)
+            .flatMap { sender in
+                return self.releaseCommand.executeRequest(sender: sender, username: username, id: id)
+            }
     }
 }
 
@@ -124,6 +123,6 @@ struct ExecuteActionCommand: Command {
     }
 
     var oaValue: String? {
-        return "action={\"type\"::\"\(action.type)\",\"deviceId\"::\"\(action.deviceId)\",\"command\"::\"\(action.command)\"}:status=\(state)"
+        return "action={\"type\"::\"\(action.type!)\",\"deviceId\"::\"\(action.deviceId!)\",\"command\"::\"\(action.command!)\"}:status=\(state)"
     }
 }
