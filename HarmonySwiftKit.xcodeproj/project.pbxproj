@@ -118,6 +118,9 @@
 		FC9E0DF01E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
 		FC9E0DF11E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
 		FC9E0DF21E2284860066799B /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DEC1E2284860066799B /* Authenticator.swift */; };
+		FC9E0DF41E2B9F150066799B /* TestHarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DF31E2B9F150066799B /* TestHarmonyHub.swift */; };
+		FC9E0DF51E2B9F150066799B /* TestHarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DF31E2B9F150066799B /* TestHarmonyHub.swift */; };
+		FC9E0DF61E2B9F150066799B /* TestHarmonyHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E0DF31E2B9F150066799B /* TestHarmonyHub.swift */; };
 		FCFD5A3C1E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
 		FCFD5A3E1E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
 		FCFD5A401E23DA2E00161358 /* TestDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */; };
@@ -239,6 +242,7 @@
 		FC9B6BE11DEEDBA1006F6BDB /* HarmonySwiftKitTvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonySwiftKitTvOSTests.swift; sourceTree = "<group>"; };
 		FC9B6BE31DEEDBA1006F6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC9E0DEC1E2284860066799B /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/Connection/Authenticator.swift; sourceTree = "<group>"; };
+		FC9E0DF31E2B9F150066799B /* TestHarmonyHub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestHarmonyHub.swift; path = Tests/TestHarmonyHub.swift; sourceTree = "<group>"; };
 		FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDeviceService.swift; path = Tests/TestDeviceService.swift; sourceTree = "<group>"; };
 		FCFD5A411E23DAEF00161358 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceManager.swift; path = Sources/DeviceManager.swift; sourceTree = "<group>"; };
 		FCFD5A491E24F2FB00161358 /* XMPPIQ+Oa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XMPPIQ+Oa.swift"; path = "Sources/Response/XMPPIQ+Oa.swift"; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 				FCFD5A3A1E23DA2E00161358 /* TestDeviceService.swift */,
 				FC34E2D41E26875000A68872 /* TestDeviceManager.swift */,
 				FC34E2FB1E2921E600A68872 /* Config.swift */,
+				FC9E0DF31E2B9F150066799B /* TestHarmonyHub.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1033,6 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9E0DF41E2B9F150066799B /* TestHarmonyHub.swift in Sources */,
 				FCFD5A591E25072B00161358 /* Activity.swift in Sources */,
 				FC271AC91E167145007079FE /* TestRxXMPPStream.swift in Sources */,
 				FC9E0DEE1E2284860066799B /* Authenticator.swift in Sources */,
@@ -1093,6 +1099,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9E0DF51E2B9F150066799B /* TestHarmonyHub.swift in Sources */,
 				FCFD5A5B1E25072B00161358 /* Activity.swift in Sources */,
 				FC271ACA1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
 				FC9E0DF01E2284860066799B /* Authenticator.swift in Sources */,
@@ -1153,6 +1160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9E0DF61E2B9F150066799B /* TestHarmonyHub.swift in Sources */,
 				FCFD5A5D1E25072B00161358 /* Activity.swift in Sources */,
 				FC271ACB1E167145007079FE /* TestRxXMPPStream.swift in Sources */,
 				FC9E0DF21E2284860066799B /* Authenticator.swift in Sources */,
