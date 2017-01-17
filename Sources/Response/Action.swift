@@ -8,16 +8,37 @@
 
 import Foundation
 
+/**
+ Harmony Hub API Action
+ */
 public struct Action {
 
+    /**
+     The raw action string
+     */
     fileprivate let action: String
 
+    /**
+     The action name
+     */
     let command: String
 
+    /**
+     The Id of the device that handles this action
+     */
     let deviceId: String
 
+    /**
+     The type of the action
+     */
     let type: String
 
+    /**
+     Returns an instance of Action only if parsing succeeds
+     
+     - Parameter action: The raw action string to parse
+     
+     */
     init?(action: String) {
         self.action = action
         guard let jsonValue = try? JSONSerialization.jsonObject(with: action.data(using: String.Encoding.utf8)!),

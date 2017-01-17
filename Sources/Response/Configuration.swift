@@ -8,40 +8,63 @@
 
 import Foundation
 
+/**
+ A Configuration holds the activity and device lists
+ */
 protocol Configuration {
 
-    var activities: [Activity]? { get }
+    /**
+     The available Activity list
+     */
+    var activities: [Activity] { get }
 
-    var devices: [Device]? { get }
+    /**
+     The available Device list
+     */
+    var devices: [Device] { get }
 }
 
+/**
+ Harmony Hub API Configuration
+ */
 struct DefaultConfiguration: Configuration {
 
+    /**
+     The deserialized json object representing the object
+     */
     fileprivate let json: [String: Any]
 
-    let activities: [Activity]?
 
-    let devices: [Device]?
+    let activities: [Activity]
 
-    let content: Any?
 
-    init(json: [String: Any]) {
+    let devices: [Device]
+
+    /**
+     To be documented
+     */
+    fileprivate let content: Any
+
+    /**
+     Returns an instance of DefaultConfiguration only if parsing succeeds
+
+     - Parameter json: a deserialized json object
+
+     */
+    init?(json: [String: Any]) {
         self.json = json
-        if let list = json["activity"] as? [[String: Any]] {
-            self.activities = list.flatMap { activity in
-                return Activity(json: activity)
-            }
-        } else {
-            self.activities = nil
+        guard let activityList = json["activity"] as? [[String: Any]],
+            let deviceList = json["device"] as? [[String: Any]],
+            let content = json["content"] else {
+            return nil
         }
-        if let list = json["device"] as? [[String: Any]] {
-            self.devices = list.flatMap { device in
-                return Device(json: device)
-            }
-        } else {
-            self.devices = nil
+        self.devices = deviceList.flatMap { device in
+            return Device(json: device)
         }
-        self.content = json["content"]
+        self.activities = activityList.flatMap { activity in
+            return Activity(json: activity)
+        }
+        self.content = content
     }
 
 }

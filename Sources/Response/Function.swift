@@ -8,14 +8,37 @@
 
 import Foundation
 
-struct Function {
+/**
+ Harmony Hub API Function
+ */
+public struct Function {
 
-    let json: [String: Any]
+    /**
+     The deserialized json object representing the object
+     */
+    fileprivate let json: [String: Any]
 
+    /**
+     The function's name
+     */
     let name: String
+
+    /**
+     The function's label
+     */
     let label: String
+
+    /**
+     The function's action
+     */
     let action: Action
 
+    /**
+     Returns an instance of Function only if parsing succeeds
+
+     - Parameter json: a deserialized json object
+
+     */
     init?(json: [String: Any]) {
         self.json = json
         guard  let name = json["name"] as? String,

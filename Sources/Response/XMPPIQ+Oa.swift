@@ -52,6 +52,11 @@ extension XMPPIQ {
         return value
     }
 
+    /**
+     Get the \"to\" attribute value contained in this XMPP IQ message
+
+     - returns: The attribute value if found, nil otherwise
+     */
     var recipient: String? {
         return attributeStringValue(forName: "to")
     }

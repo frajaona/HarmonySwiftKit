@@ -35,10 +35,7 @@ class TestDeviceService: XCTestCase {
         let deviceService = DefaultDeviceService(stream: stream, ip: testIp, username: testUser, id: testId)
         deviceService.configuration()
             .subscribe(onNext: { configuration in
-                XCTAssertNotNil(configuration.devices)
-                if let devices = configuration.devices {
-                    XCTAssertFalse(devices.isEmpty)
-                }
+                XCTAssertFalse(configuration.devices.isEmpty)
                 e.fulfill()
             })
             .addDisposableTo(disposeBag)

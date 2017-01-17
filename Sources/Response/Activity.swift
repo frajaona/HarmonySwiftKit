@@ -8,29 +8,55 @@
 
 import Foundation
 
+/**
+ Harmony Hub API Activity
+ */
 public struct Activity {
 
+    /**
+     The deserialized json object representing the object
+     */
     fileprivate let json: [String: Any]
 
-    let name: String?
+    /**
+     The name of this Activity
+     */
+    let name: String
 
-    let id: String?
+    /**
+     The id of this Activity
+     */
+    let id: String
 
-    let type: String?
+    /**
+     The type of this Activity
+     */
+    let type: String
 
-    let controlGroups: [ControlGroup]?
+    /**
+     The Control Group list containing the function to interact with this Activity
+     */
+    let controlGroups: [ControlGroup]
 
-    init(json: [String: Any]) {
+    /**
+     Returns an instance of Activity only if parsing succeeds
+
+     - Parameter json: a deserialized json object
+
+     */
+    init?(json: [String: Any]) {
         self.json = json
-        self.name = json["label"] as? String
-        self.id = json["id"] as? String
-        self.type = json["type"] as? String
-        if let list = json["controlGroup"] as? [[String: Any]] {
-            self.controlGroups = list.flatMap { group in
-                return ControlGroup(json: group)
-            }
-        } else {
-            self.controlGroups = nil
+        guard let name = json["label"] as? String,
+            let id = json["id"] as? String,
+            let type = json["type"] as? String,
+            let list = json["controlGroup"] as? [[String: Any]] else {
+            return nil
+        }
+        self.name = name
+        self.id = id
+        self.type = type
+        self.controlGroups = list.flatMap { group in
+            return ControlGroup(json: group)
         }
     }
 }

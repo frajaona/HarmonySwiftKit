@@ -8,18 +8,42 @@
 
 import Foundation
 
+/**
+ Harmony Hub API Device
+ */
 public struct Device {
 
+    /**
+     The deserialized json object representing the object
+     */
     fileprivate let json: [String: Any]
 
+    /**
+     The name of this Device
+     */
     let name: String
 
+    /**
+     The id of this device
+     */
     let id: String
 
+    /**
+     The type of this device
+     */
     let type: String
 
+    /**
+     The Control Group list containing the function to interact with this device
+     */
     let controlGroups: [ControlGroup]
 
+    /**
+     Returns an instance of Device only if parsing succeeds
+
+     - Parameter json: a deserialized json object
+
+     */
     init?(json: [String: Any]) {
         self.json = json
         guard let name = json["label"] as? String,
