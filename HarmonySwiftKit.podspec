@@ -86,8 +86,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  #s.source       = { :git => "https://git.groriri.me/frajaona/HarmonySwiftKit.git", :tag => "#{s.version}" }
-  s.source = { :git => 'https://git.groriri.me/frajaona/HarmonySwiftKit.git', :branch => 'master' }
+  s.source       = { :git => "https://git.groriri.me/frajaona/HarmonySwiftKit.git", :tag => "#{s.version}" }
+  #s.source = { :git => 'https://git.groriri.me/frajaona/HarmonySwiftKit.git', :branch => 'master' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
