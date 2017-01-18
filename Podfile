@@ -3,7 +3,7 @@
 
 
 def pods()
-  pod 'XMPPFramework', :git => "https://github.com/robbiehanson/XMPPFramework.git", :branch => 'master'
+  pod 'XMPPFramework', :git => "https://github.com/frajaona/XMPPFramework.git", :branch => 'master'
   pod 'RxSwift', '~> 3.0'
   pod 'RxCocoa', '~> 3.0'
   pod 'RxTest', '~> 3.0'

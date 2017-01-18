@@ -97,7 +97,7 @@ extension Command {
 
     func executeRequest(sender: RxXMPPStream, username: String, id: String) -> Observable<RxXMPPStream> {
         return Observable<RxXMPPStream>.create { observer in
-            let query = XMLElement(name: "oa", xmlns: self.xmlns)!
+            let query = XMPPElement(name: "oa", xmlns: self.xmlns)!
             query.addAttribute(withName: "mime", stringValue: self.configRequestMime + self.type.rawValue)
             if let oaValue = self.oaValue {
                 query.stringValue = oaValue

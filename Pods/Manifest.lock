@@ -188,17 +188,17 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - RxTest (~> 3.0)
   - SwiftyBeaver (~> 1.1.1)
-  - XMPPFramework (from `https://github.com/robbiehanson/XMPPFramework.git`, branch `master`)
+  - XMPPFramework (from `https://github.com/frajaona/XMPPFramework.git`, branch `master`)
 
 EXTERNAL SOURCES:
   XMPPFramework:
     :branch: master
-    :git: https://github.com/robbiehanson/XMPPFramework.git
+    :git: https://github.com/frajaona/XMPPFramework.git
 
 CHECKOUT OPTIONS:
   XMPPFramework:
     :commit: 917a5b40da013f3c9a6fe80662448d87d67f3341
-    :git: https://github.com/robbiehanson/XMPPFramework.git
+    :git: https://github.com/frajaona/XMPPFramework.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
@@ -210,6 +210,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
   XMPPFramework: 977eef5d00c20fe9fb19c30d84a89c2d5564252d
 
-PODFILE CHECKSUM: 0534d400444c5e5f67772ec9d8e85619e406d48f
+PODFILE CHECKSUM: 9d7ed7309a334e609700e2662db9696ed3dfd096
 
 COCOAPODS: 1.1.1

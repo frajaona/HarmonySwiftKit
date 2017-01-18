@@ -75,7 +75,7 @@ class DefaultTokenFinder: TokenFinder {
         return Observable<RxXMPPStream>.create { observer in
             log.debug("authentication succeeded")
             
-            let query = XMLElement(name: "oa", xmlns: "connect.logitech.com")!
+            let query = XMPPElement(name: "oa", xmlns: "connect.logitech.com")!
             query.addAttribute(withName: "mime", stringValue: "vnd.logitech.connect/vnd.logitech.pair")
             query.stringValue = "method=pair:name=domoticz#iOS10.1.0#iPhone"
             

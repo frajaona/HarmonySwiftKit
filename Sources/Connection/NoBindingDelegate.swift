@@ -17,16 +17,21 @@
 import Foundation
 import XMPPFramework
 
+
 /**
  XMPPStreamDelegate protocol implementation for stream that does not require binding
  */
 class NoBindingDelegate: NSObject, XMPPCustomBinding, XMPPStreamDelegate {
-    
+
+    #if os(iOS)
+    typealias XMLElement = DDXMLElement
+    #endif
+
     func start(_ errPtr: NSErrorPointer) -> XMPPBindResult {
         // No binding required
         return XMPPBindResult.BIND_SUCCESS
     }
-    
+
     func handleBind(_ auth: XMLElement!, withError errPtr: NSErrorPointer) -> XMPPBindResult {
         // No binding required
         return XMPPBindResult.BIND_SUCCESS
