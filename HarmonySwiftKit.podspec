@@ -127,9 +127,9 @@ Pod::Spec.new do |s|
   s.framework  = "Foundation"
 
   s.dependency 'XMPPFramework', '~> 3.7'
-  s.dependency 'RxSwift', '~> 3.0'
-  s.dependency 'RxCocoa', '~> 3.0'
-  s.dependency 'RxTest', '~> 3.0'
-  s.dependency 'SwiftyBeaver', '~> 1.1.1'
+  s.dependency 'RxSwift', '~> 3.6'
+  s.dependency 'RxCocoa', '~> 3.6'
+  s.dependency 'RxTest', '~> 3.6'
+  s.dependency 'SwiftyBeaver', '~> 1.4'
 
 end
