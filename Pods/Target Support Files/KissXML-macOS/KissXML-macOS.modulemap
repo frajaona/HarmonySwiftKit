@@ -1,0 +1,6 @@
+framework module KissXML {
+  umbrella header "KissXML-macOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDF52E1CEBB87B12C9DE415C7F3D02A4"
+               BlueprintIdentifier = "78DF8052F1AA4A2C70AEDC0DBBA17282"
                BuildableName = "Pods_HarmonySwiftKitMacOSTests.framework"
                BlueprintName = "Pods-HarmonySwiftKitMacOSTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FDF52E1CEBB87B12C9DE415C7F3D02A4"
+            BlueprintIdentifier = "78DF8052F1AA4A2C70AEDC0DBBA17282"
             BuildableName = "Pods_HarmonySwiftKitMacOSTests.framework"
             BlueprintName = "Pods-HarmonySwiftKitMacOSTests"
             ReferencedContainer = "container:Pods.xcodeproj">

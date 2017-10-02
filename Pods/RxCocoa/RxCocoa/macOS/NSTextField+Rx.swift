@@ -8,7 +8,6 @@
 
 #if os(macOS)
 
-import Foundation
 import Cocoa
 #if !RX_NO_MODULE
 import RxSwift
@@ -41,6 +40,7 @@ public class RxTextFieldDelegateProxy
         let textField: NSTextField = castOrFatalError(notification.object)
         let nextValue = textField.stringValue
         self.textSubject.on(.next(nextValue))
+        _forwardToDelegate?.controlTextDidChange(notification)
     }
 
     // MARK: Delegate proxy methods

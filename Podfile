@@ -7,7 +7,7 @@ def pods()
   pod 'RxSwift', '~> 3.0'
   pod 'RxCocoa', '~> 3.0'
   pod 'RxTest', '~> 3.0'
-  pod 'SwiftyBeaver', '~> 1.1.1'
+  pod 'SwiftyBeaver', '~> 1.4'
 end
 
 def test_pods()
